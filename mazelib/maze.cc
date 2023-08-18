@@ -1,6 +1,5 @@
 #include "maze.h"
 
-#include <fstream>
 #include <random>
 #include <algorithm>
 
@@ -16,51 +15,47 @@ bool GenRandCond() {
 
 } // namespace
 
-bool Maze::ReadFile(std::string_view path) {
-  Clear();
-  std::ifstream file(path.data(), std::ifstream::binary);
-  if (!file.is_open()) {
-    return false;
-  }
-  size_t rows, cols;
-  file >> rows >> cols;
-  SetRows(rows);
-  SetCols(cols);
+bool Maze::Solve(Indices curr, const Indices &target) {
   for (auto &cell : *this) {
-    file >> cell.right_wall;
+    cell.visited = false;
+    cell.way = PathWay::kIdle;
   }
-  char c;
-  do {
-    file.get(c);
-  } while (file.good() && c != '\n');
-  for (auto &cell : *this) {
-    file >> cell.bottom_wall;
-  }
-  return true;
+  return SolveRecursive(std::move(curr), target);
 }
 
-bool Maze::Solve(Indices curr, const Indices &target) {
-  auto [i, j] = curr;
+bool Maze::SolveRecursive(Indices curr, const Indices &target) {
+  auto &[i, j] = curr;
   At(i, j).visited = true;
-  solve_path_.emplace_back(std::move(curr));
-  if (curr == target) return true;
+  if (curr == target)
+    return true;
   if (j < GetCols() - 1 &&
       !At(i, j).right_wall &&
       !At(i, j + 1).visited &&
-      Solve({i, j + 1}, target)) return true;
+      SolveRecursive({i, j + 1}, target)) {
+    At(i, j).way = PathWay::kRight;
+    return true;
+  }
   if (j > 0 &&
       !At(i, j - 1).right_wall &&
       !At(i, j - 1).visited &&
-      Solve({i, j - 1}, target)) return true;
+      SolveRecursive({i, j - 1}, target)) {
+    At(i, j).way = PathWay::kLeft;
+    return true;
+  }
   if (i > 0 &&
       !At(i - 1, j).bottom_wall &&
       !At(i - 1, j).visited &&
-      Solve({i - 1, j}, target)) return true;
+      SolveRecursive({i - 1, j}, target)) {
+    At(i, j).way = PathWay::kUp;
+    return true;
+  }
   if (i < GetRows() - 1 &&
       !At(i, j).bottom_wall &&
       !At(i + 1, j).visited &&
-      Solve({i + 1, j}, target)) return true;
-  solve_path_.pop_back();
+      SolveRecursive({i + 1, j}, target)) {
+    At(i, j).way = PathWay::kDown;
+    return true;
+  }
   At(i, j).visited = false;
   return false;
 }

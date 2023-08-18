@@ -6,24 +6,30 @@
 
 namespace mcg {
 
+enum class PathWay : short int {
+  kIdle,
+  kUp,
+  kDown,
+  kRight,
+  kLeft
+};
+
 using Indices = std::pair<int, int>;
 
 struct Cell {
   bool right_wall{};
   bool bottom_wall{};
   bool visited{};
+  PathWay way{};
 };
 
 class Maze : public Matrix<Cell> {
  public:
-  bool ReadFile(std::string_view path);
   void Generate(size_t rows, size_t cols);
   bool Solve(Indices curr, const Indices &target);
-  const std::vector<Indices> &GetSolvePath() const
-  noexcept;
  private:
   std::vector<size_t> sets_;
-  std::vector<Indices> solve_path_;
+  bool SolveRecursive(Indices curr, const Indices &target);
   void GenRightWalls(size_t row);
   void GenLowerWalls(size_t row);
   void FixLowerWalls(size_t row);
@@ -31,10 +37,6 @@ class Maze : public Matrix<Cell> {
   void PrepareNewSets(size_t row, size_t &count);
   void AddLastRow();
 };
-
-inline const std::vector<Indices> &Maze::GetSolvePath() const noexcept {
-  return solve_path_;
-}
 
 } // namespace mcg
 
