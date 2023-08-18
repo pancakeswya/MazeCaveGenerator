@@ -1,0 +1,151 @@
+#include "maze.h"
+
+#include <fstream>
+#include <random>
+#include <algorithm>
+
+namespace mcg {
+
+namespace {
+
+bool GenRandCond() {
+  static std::mt19937 rng(std::random_device{}());
+  static std::uniform_int_distribution<int> distribution(0, 1);
+  return distribution(rng);
+}
+
+} // namespace
+
+bool Maze::ReadFile(std::string_view path) {
+  Clear();
+  std::ifstream file(path.data(), std::ifstream::binary);
+  if (!file.is_open()) {
+    return false;
+  }
+  size_t rows, cols;
+  file >> rows >> cols;
+  SetRows(rows);
+  SetCols(cols);
+  for (auto &cell : *this) {
+    file >> cell.right_wall;
+  }
+  char c;
+  do {
+    file.get(c);
+  } while (file.good() && c != '\n');
+  for (auto &cell : *this) {
+    file >> cell.bottom_wall;
+  }
+  return true;
+}
+
+bool Maze::Solve(Indices curr, const Indices &target) {
+  auto [i, j] = curr;
+  At(i, j).visited = true;
+  solve_path_.emplace_back(std::move(curr));
+  if (curr == target) return true;
+  if (j < GetCols() - 1 &&
+      !At(i, j).right_wall &&
+      !At(i, j + 1).visited &&
+      Solve({i, j + 1}, target)) return true;
+  if (j > 0 &&
+      !At(i, j - 1).right_wall &&
+      !At(i, j - 1).visited &&
+      Solve({i, j - 1}, target)) return true;
+  if (i > 0 &&
+      !At(i - 1, j).bottom_wall &&
+      !At(i - 1, j).visited &&
+      Solve({i - 1, j}, target)) return true;
+  if (i < GetRows() - 1 &&
+      !At(i, j).bottom_wall &&
+      !At(i + 1, j).visited &&
+      Solve({i + 1, j}, target)) return true;
+  solve_path_.pop_back();
+  At(i, j).visited = false;
+  return false;
+}
+
+void Maze::GenRightWalls(size_t row) {
+  for (size_t j = 0; j < sets_.size() - 1; ++j) {
+    bool is_wall = GenRandCond();
+    if (is_wall || sets_[j] == sets_[j + 1]) {
+      At(row, j).right_wall = true;
+    } else {
+      std::replace_if(sets_.begin(), sets_.end(),
+                      [elem = sets_[j + 1]](size_t &set) {
+                        return set == elem;
+                      }, sets_[j]);
+    }
+  }
+  At(row, sets_.size() - 1).right_wall = true;
+}
+
+void Maze::GenLowerWalls(size_t row) {
+  for (size_t j = 0; j < sets_.size(); ++j) {
+    bool is_wall = GenRandCond();
+    auto count = std::count(sets_.begin(), sets_.end(), sets_[j]);
+    if (count != 1 && is_wall) {
+      At(row, j).bottom_wall = true;
+    }
+  }
+}
+
+void Maze::FixLowerWalls(size_t row) {
+  for (int i = 0; i < sets_.size(); ++i) {
+    if (CountLowerWalls(sets_[i], row) == 0) {
+      At(row, i).bottom_wall = false;
+    }
+  }
+}
+
+size_t Maze::CountLowerWalls(size_t elem, size_t row) {
+  int count = 0;
+  for (int i = 0; i < sets_.size(); ++i) {
+    if (sets_[i] == elem && !At(row, i).bottom_wall) {
+      ++count;
+    }
+  }
+  return count;
+}
+
+void Maze::PrepareNewSets(size_t row, size_t &count) {
+  for (size_t i = 0; i < sets_.size(); ++i) {
+    if (At(row, i).bottom_wall) {
+      sets_[i] = ++count;
+    }
+  }
+}
+
+void Maze::AddLastRow() {
+  GenRightWalls(GetRows() - 1);
+  for (size_t i = 0; i < sets_.size() - 1; ++i) {
+    if (sets_[i] != sets_[i + 1]) {
+      At(GetRows() - 1, i).right_wall = false;
+      std::replace_if(sets_.begin(), sets_.end(),
+                      [elem = sets_[i + 1]](size_t &set) {
+                        return set == elem;
+                      }, sets_[i]);
+    }
+    At(GetRows() - 1, i).bottom_wall = true;
+  }
+  At(GetRows() - 1, GetCols() - 1).bottom_wall = true;
+}
+
+void Maze::Generate(size_t rows, size_t cols) {
+  Clear();
+  SetRows(rows);
+  SetCols(cols);
+  sets_.resize(cols);
+  size_t sets_count{cols};
+  std::iota(sets_.begin(), sets_.end(), 1);
+  for (size_t i = 0; i < rows - 1; ++i) {
+    GenRightWalls(i);
+    GenLowerWalls(i);
+    FixLowerWalls(i);
+    PrepareNewSets(i, sets_count);
+  }
+  AddLastRow();
+  sets_.clear();
+}
+
+} // namespace mcg
