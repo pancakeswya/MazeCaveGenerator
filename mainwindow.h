@@ -19,6 +19,7 @@ private:
     Ui::MainWindow *ui_;
 private slots:
     void OnOpenFileClicked();
+    void OnSaveFileClicked();
     void OnGenerateMazeClicked();
 };
 #endif // MAINWINDOW_H

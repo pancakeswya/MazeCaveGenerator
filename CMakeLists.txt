@@ -15,11 +15,13 @@ find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(PROJECT_SOURCES
+        mazelib/matrix.h
         mazelib/cave.cc
         mazelib/cave.h
         mazelib/maze.cc
         mazelib/maze.h
-        mazelib/matrix.h
+        mazelib/view.cc
+        mazelib/view.h
         mazelib/loader.cc
         mazelib/loader.h
         main.cc
