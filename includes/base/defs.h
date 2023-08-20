@@ -7,6 +7,8 @@ namespace mcg {
 
 using Indices = std::pair<int, int>;
 
+using Range = std::pair<int, int>;
+
 using ScaledSize = std::pair<int, int>;
 
 } // namespace mcg

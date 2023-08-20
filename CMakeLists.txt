@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(Maze VERSION 0.1 LANGUAGES CXX)
+project(MazeCaveGenerator VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -38,23 +38,19 @@ include_directories("includes/base/" "includes/model/" "includes/view/")
 set(CMAKE_AUTOUIC_SEARCH_PATHS ui)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(Maze
+    qt_add_executable(MazeCaveGenerator
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
     )
-# Define target properties for Android with Qt 6 as:
-#    set_property(TARGET Maze APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
-#                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
-# For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
 else()
-        add_executable(Maze
-                ${PROJECT_SOURCES}
-        )
+    add_executable(MazeCaveGenerator
+            ${PROJECT_SOURCES}
+    )
 endif()
 
-target_link_libraries(Maze PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(MazeCaveGenerator PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
-set_target_properties(Maze PROPERTIES
+set_target_properties(MazeCaveGenerator PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
@@ -63,5 +59,5 @@ set_target_properties(Maze PROPERTIES
 )
 
 if(QT_VERSION_MAJOR EQUAL 6)
-    qt_finalize_executable(Maze)
+    qt_finalize_executable(MazeCaveGenerator)
 endif()

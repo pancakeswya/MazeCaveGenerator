@@ -50,9 +50,9 @@ void MainWindow::InitWidgets() {
   connect(ui_->spinBox_CaveCols, QOverload<int>::of(&QSpinBox::valueChanged),
           ui_->horizontalSlider_CaveCols, &QSlider::setValue);
   connect(ui_->tabWidget, &QTabWidget::currentChanged, ui_->McgLoader,
-          &mcg::Loader::ChangeType);
+          &Loader::ChangeType);
   connect(ui_->pushButton_NextGenCave, &QPushButton::clicked, ui_->McgLoader,
-          &mcg::Loader::NextGenCave);
+          &Loader::NextGenCave);
   ui_->spinBox_delay->setRange(1, std::numeric_limits<int>::max());
   ui_->horizontalSlider_MazeRows->setRange(0, 50);
   ui_->horizontalSlider_MazeCols->setRange(0, 50);
@@ -97,7 +97,7 @@ void MainWindow::OnAutoGenerationClicked() {
   int delay = ui_->spinBox_delay->value();
   auto worker = new WorkerThread(delay);
   connect(worker, &WorkerThread::WorkIsRunning, ui_->McgLoader,
-          &mcg::Loader::NextGenCave);
+          &Loader::NextGenCave);
   connect(ui_->pushButton_StopAutoGen, &QPushButton::clicked, worker,
           &WorkerThread::FinishWork);
   connect(worker, &WorkerThread::finished, worker, &WorkerThread::quit);
@@ -109,10 +109,10 @@ void MainWindow::OnGenerateCaveClicked() {
   size_t rows = ui_->spinBox_CaveRows->value();
   size_t cols = ui_->spinBox_CaveCols->value();
   size_t life_chance = ui_->spinBox_LifeChance->value();
-  mcg::Range born_limit = {ui_->spinBox_BornLimitMin->value(),
-                           ui_->spinBox_BornLimitMax->value()};
-  mcg::Range live_limit = {ui_->spinBox_LiveLimitMin->value(),
-                           ui_->spinBox_LiveLimitMax->value()};
+  Range born_limit = {ui_->spinBox_BornLimitMin->value(),
+                      ui_->spinBox_BornLimitMax->value()};
+  Range live_limit = {ui_->spinBox_LiveLimitMin->value(),
+                      ui_->spinBox_LiveLimitMax->value()};
   ui_->McgLoader->GenerateCave(rows, cols, life_chance, born_limit, live_limit);
 }
 

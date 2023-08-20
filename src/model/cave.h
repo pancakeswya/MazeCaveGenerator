@@ -1,11 +1,10 @@
 #ifndef MAZECAVEGENERATOR_SRC_MODEL_CAVE_H_
 #define MAZECAVEGENERATOR_SRC_MODEL_CAVE_H_
 
+#include "defs.h"
 #include "matrix.h"
 
 namespace mcg {
-
-using Range = std::pair<int, int>;
 
 class Cave : public Matrix<int> {
  public:
