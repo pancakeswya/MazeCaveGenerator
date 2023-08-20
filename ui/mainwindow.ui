@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>mcg::MainWindow</class>
+ <widget class="QMainWindow" name="mcg::MainWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>802</width>
-    <height>524</height>
+    <height>561</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>MazeCaveGenerator</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <widget class="mcg::Loader" name="McgLoader" native="true">
+     <widget class="Loader" name="McgLoader" native="true">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
         <horstretch>0</horstretch>
@@ -338,9 +338,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>mcg::Loader</class>
+   <class>Loader</class>
    <extends>QWidget</extends>
-   <header>mazelib/loader.h</header>
+   <header>src/view/loader.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

@@ -1,20 +1,14 @@
-#ifndef MAZE_H_
-#define MAZE_H_
+#ifndef MAZECAVEGENERATOR_SRC_MODEL_MAZE_H_
+#define MAZECAVEGENERATOR_SRC_MODEL_MAZE_H_
 
-#include "matrix.h"
 #include <string>
+
+#include "defs.h"
+#include "matrix.h"
 
 namespace mcg {
 
-enum class PathWay : short int {
-  kIdle,
-  kUp,
-  kDown,
-  kRight,
-  kLeft
-};
-
-using Indices = std::pair<int, int>;
+enum class PathWay : short int { kIdle, kUp, kDown, kRight, kLeft };
 
 struct Cell {
   bool right_wall{};
@@ -27,6 +21,7 @@ class Maze : public Matrix<Cell> {
  public:
   void Generate(size_t rows, size_t cols);
   bool Solve(Indices curr, const Indices &target);
+
  private:
   std::vector<size_t> sets_;
   bool SolveRecursive(Indices curr, const Indices &target);
@@ -38,6 +33,6 @@ class Maze : public Matrix<Cell> {
   void AddLastRow();
 };
 
-} // namespace mcg
+}  // namespace mcg
 
-#endif // MAZE_H_
+#endif  // MAZECAVEGENERATOR_SRC_MODEL_MAZE_H_

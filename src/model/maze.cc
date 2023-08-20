@@ -1,8 +1,8 @@
 #include "maze.h"
 
 #include <algorithm>
-#include "random.h"
 
+#include "util.h"
 
 namespace mcg {
 
@@ -17,32 +17,23 @@ bool Maze::Solve(Indices curr, const Indices &target) {
 bool Maze::SolveRecursive(Indices curr, const Indices &target) {
   auto &[i, j] = curr;
   At(i, j).visited = true;
-  if (curr == target)
-    return true;
-  if (j < GetCols() - 1 &&
-      !At(i, j).right_wall &&
-      !At(i, j + 1).visited &&
+  if (curr == target) return true;
+  if (j < GetCols() - 1 && !At(i, j).right_wall && !At(i, j + 1).visited &&
       SolveRecursive({i, j + 1}, target)) {
     At(i, j).way = PathWay::kRight;
     return true;
   }
-  if (j > 0 &&
-      !At(i, j - 1).right_wall &&
-      !At(i, j - 1).visited &&
+  if (j > 0 && !At(i, j - 1).right_wall && !At(i, j - 1).visited &&
       SolveRecursive({i, j - 1}, target)) {
     At(i, j).way = PathWay::kLeft;
     return true;
   }
-  if (i > 0 &&
-      !At(i - 1, j).bottom_wall &&
-      !At(i - 1, j).visited &&
+  if (i > 0 && !At(i - 1, j).bottom_wall && !At(i - 1, j).visited &&
       SolveRecursive({i - 1, j}, target)) {
     At(i, j).way = PathWay::kUp;
     return true;
   }
-  if (i < GetRows() - 1 &&
-      !At(i, j).bottom_wall &&
-      !At(i + 1, j).visited &&
+  if (i < GetRows() - 1 && !At(i, j).bottom_wall && !At(i + 1, j).visited &&
       SolveRecursive({i + 1, j}, target)) {
     At(i, j).way = PathWay::kDown;
     return true;
@@ -53,14 +44,13 @@ bool Maze::SolveRecursive(Indices curr, const Indices &target) {
 
 void Maze::GenRightWalls(size_t row) {
   for (size_t j = 0; j < sets_.size() - 1; ++j) {
-    bool is_wall = GenRandCond(0,1);
+    bool is_wall = GenRandCond(0, 1);
     if (is_wall || sets_[j] == sets_[j + 1]) {
       At(row, j).right_wall = true;
     } else {
-      std::replace_if(sets_.begin(), sets_.end(),
-                      [elem = sets_[j + 1]](size_t &set) {
-                        return set == elem;
-                      }, sets_[j]);
+      std::replace_if(
+          sets_.begin(), sets_.end(),
+          [elem = sets_[j + 1]](size_t &set) { return set == elem; }, sets_[j]);
     }
   }
   At(row, sets_.size() - 1).right_wall = true;
@@ -68,7 +58,7 @@ void Maze::GenRightWalls(size_t row) {
 
 void Maze::GenLowerWalls(size_t row) {
   for (size_t j = 0; j < sets_.size(); ++j) {
-    bool is_wall = GenRandCond(0,1);
+    bool is_wall = GenRandCond(0, 1);
     auto count = std::count(sets_.begin(), sets_.end(), sets_[j]);
     if (count != 1 && is_wall) {
       At(row, j).bottom_wall = true;
@@ -107,10 +97,9 @@ void Maze::AddLastRow() {
   for (size_t i = 0; i < sets_.size() - 1; ++i) {
     if (sets_[i] != sets_[i + 1]) {
       At(GetRows() - 1, i).right_wall = false;
-      std::replace_if(sets_.begin(), sets_.end(),
-                      [elem = sets_[i + 1]](size_t &set) {
-                        return set == elem;
-                      }, sets_[i]);
+      std::replace_if(
+          sets_.begin(), sets_.end(),
+          [elem = sets_[i + 1]](size_t &set) { return set == elem; }, sets_[i]);
     }
     At(GetRows() - 1, i).bottom_wall = true;
   }
@@ -119,7 +108,7 @@ void Maze::AddLastRow() {
 
 void Maze::Generate(size_t rows, size_t cols) {
   if (rows == 0 || cols == 0) {
-      return;
+    return;
   }
   Clear();
   SetRows(rows);
@@ -137,4 +126,4 @@ void Maze::Generate(size_t rows, size_t cols) {
   sets_.clear();
 }
 
-} // namespace mcg
+}  // namespace mcg

@@ -15,21 +15,27 @@ find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(PROJECT_SOURCES
-	mazelib/random.h
-        mazelib/matrix.h
-        mazelib/cave.cc
-        mazelib/cave.h
-        mazelib/maze.cc
-        mazelib/maze.h
-        mazelib/view.cc
-        mazelib/view.h
-        mazelib/loader.cc
-        mazelib/loader.h
-        main.cc
-        mainwindow.cc
-        mainwindow.h
-        mainwindow.ui
+        src/base/worker_thread.h
+        src/base/worker_thread.cc
+        src/model/cave.h
+        src/model/cave.cc
+        src/model/maze.h
+        src/model/maze.cc
+        src/view/cave_view.h
+        src/view/cave_view.cc
+        src/view/maze_view.h
+        src/view/maze_view.cc
+        src/view/loader.h
+        src/view/loader.cc
+        src/view/mainwindow.h
+        src/view/mainwindow.cc
+        ui/mainwindow.ui
+        src/main.cc
 )
+
+include_directories("includes/base/" "includes/model/" "includes/view/")
+
+set(CMAKE_AUTOUIC_SEARCH_PATHS ui)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(Maze
@@ -41,17 +47,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
 #                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
 # For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
 else()
-    if(ANDROID)
-        add_library(Maze SHARED
-            ${PROJECT_SOURCES}
-        )
-# Define properties for Android with Qt 5 after find_package() calls as:
-#    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
-    else()
         add_executable(Maze
-            ${PROJECT_SOURCES}
+                ${PROJECT_SOURCES}
         )
-    endif()
 endif()
 
 target_link_libraries(Maze PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)

@@ -1,5 +1,5 @@
-#ifndef MATRIX_H_
-#define MATRIX_H_
+#ifndef MAZECAVEGENERATOR_INCLUDES_MODEL_MATRIX_H_
+#define MAZECAVEGENERATOR_INCLUDES_MODEL_MATRIX_H_
 
 #include <vector>
 #include <cassert>
@@ -178,4 +178,4 @@ std::ostream& operator<<(std::ostream& os, Matrix<Tp>& mat) noexcept {
 } // namespace mcg
 
 
-#endif // MATRIX_H_
+#endif // MAZECAVEGENERATOR_INCLUDES_MODEL_MATRIX_H_
