@@ -14,7 +14,7 @@ enum DrawingSizes {
 };
 
 Loader::Loader(QWidget *parent)
-    : QWidget(parent), view_ptr_(new CaveView(kCaveSize, kMazeSize)) {}
+    : QWidget(parent), view_ptr_(new CaveView(kCaveSize, kCaveSize)) {}
 
 Loader::~Loader() {
   delete view_ptr_;
@@ -42,7 +42,17 @@ bool Loader::SaveFile(const QString &path) {
 }
 
 void Loader::GenerateMaze(size_t rows, size_t cols) {
-  static_cast<MazeView *>(view_ptr_)->Generate(rows, cols);
+  dynamic_cast<MazeView*>(view_ptr_)->Generate(rows, cols);
+  update();
+}
+
+void Loader::GenerateCave(size_t rows, size_t cols, size_t life_chance, const Range& live, const Range& born) {
+  dynamic_cast<CaveView*>(view_ptr_)->Generate(rows, cols, life_chance, live, born);
+  update();
+}
+
+void Loader::NextGenCave() noexcept {
+  dynamic_cast<CaveView*>(view_ptr_)->NextGeneration();
   update();
 }
 

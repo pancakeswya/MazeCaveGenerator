@@ -107,14 +107,14 @@ class Matrix {
   }
 
   reference At(size_type row, size_type col) {
-    if (row > rows_ || col > cols_) {
+    if (row >= rows_ || col >= cols_) {
       throw std::out_of_range("operator[]. Row or col is out of range");
     }
     return data_[row * cols_ + col];
   }
 
   const_reference At(size_type row, size_type col) const {
-    if (row > rows_ || col > cols_) {
+    if (row >= rows_ || col >= cols_) {
       throw std::out_of_range("operator[]. Row or col is out of range");
     }
     return data_[row * cols_ + col];
@@ -132,7 +132,7 @@ class Matrix {
     Matrix tmp(rows_, cols);
     size_type cols_to_copy = std::min(cols_, cols);
     for (size_type i = 0; i < rows_; ++i) {
-      memcpy(&tmp.data_[i * cols_], &data_[i * cols_], cols_to_copy * sizeof(Tp));
+      memcpy(&tmp.data_[i * cols], &data_[i * cols_], cols_to_copy * sizeof(Tp));
     }
     Swap(tmp);
   }

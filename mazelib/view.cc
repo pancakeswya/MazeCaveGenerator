@@ -64,14 +64,17 @@ bool MazeView::SaveFile(const QString &path) {
   return true;
 }
 
+inline ScaledSize MazeView::GetScaledCell(int w, int h) const noexcept {
+    return {float(h)/maze_.GetRows(), float(w)/maze_.GetCols()};
+}
+
 inline bool MazeView::Solve(Indices curr, const Indices &target) {
   return maze_.Solve(std::move(curr), target);
 }
 
 bool MazeView::SolveOnMouseEvent(QMouseEvent *event) {
   if (event->button() == Qt::LeftButton) {
-    auto scale_row = float(GetHeight()) / maze_.GetRows();
-    auto scale_col = float(GetWidth()) / maze_.GetCols();
+    auto[scale_row, scale_col] = GetScaledCell(GetWidth(), GetHeight());
     indices_[indices_count_++] = {event->pos().y() / scale_row, event->pos().x() / scale_col};
     // solve on second click
     if (indices_count_ == 2) {
@@ -89,8 +92,7 @@ void MazeView::Draw(QWidget *widget) {
   }
   QPainter painter;
   painter.begin(widget);
-  auto scale_row = float(GetHeight() - 2) / maze_.GetRows();
-  auto scale_col = float(GetWidth() - 2) / maze_.GetCols();
+  auto[scale_row, scale_col] = GetScaledCell(GetWidth() - 2, GetHeight() - 2);
   painter.fillRect(0, 0, widget->width(), 2, Qt::black);
   painter.fillRect(0, 0, 2, widget->height(), Qt::black);
   for (size_t i = 0; i < maze_.GetRows(); ++i) {
@@ -108,17 +110,17 @@ void MazeView::Draw(QWidget *widget) {
                            i * scale_row - scale_row / 2,
                            2,
                            scale_row + 2,
-                           Qt::yellow);
+                           Qt::red);
         } else if (path_way == PathWay::kDown) {
-          painter.fillRect(j * scale_col + scale_col / 2, i * scale_row + scale_row / 2, 2, scale_row + 2, Qt::yellow);
+          painter.fillRect(j * scale_col + scale_col / 2, i * scale_row + scale_row / 2, 2, scale_row + 2, Qt::red);
         } else if (path_way == PathWay::kLeft) {
-          painter.fillRect(j * scale_col - scale_col / 2, i * scale_row + scale_row / 2, scale_col + 2, 2, Qt::yellow);
+          painter.fillRect(j * scale_col - scale_col / 2, i * scale_row + scale_row / 2, scale_col + 2, 2, Qt::red);
         } else if (path_way == PathWay::kRight) {
           painter.fillRect(j * scale_col + scale_col / 2,
                            (i + 1) * scale_row - scale_row / 2,
                            scale_col + 2,
                            2,
-                           Qt::yellow);
+                           Qt::red);
         }
       }
     }
@@ -153,15 +155,23 @@ bool CaveView::SaveFile(const QString &path) {
   return true;
 }
 
-bool CaveView::SolveOnMouseEvent(QMouseEvent *) {
-  return false;
+inline ScaledSize CaveView::GetScaledCell() const noexcept {
+    return {float(GetHeight())/cave_.GetRows(), float(GetWidth())/cave_.GetCols()};
+}
+
+bool CaveView::SolveOnMouseEvent(QMouseEvent *event) {
+  if (!cave_.GetCols() || !cave_.GetRows()) {
+      return false;
+  }
+  auto[scale_row, scale_col] = GetScaledCell();
+  cave_.At(event->pos().y() / scale_row, event->pos().x() / scale_col) = 1;
+  return true;
 }
 
 void CaveView::Draw(QWidget *widget) {
   QPainter painter;
   painter.begin(widget);
-  auto scale_row = float(GetHeight()) / cave_.GetRows();
-  auto scale_col = float(GetWidth()) / cave_.GetCols();
+  auto[scale_row, scale_col] = GetScaledCell();
   for (size_t i = 0; i < cave_.GetRows(); ++i) {
     for (size_t j = 0; j < cave_.GetCols(); ++j) {
       if (cave_[i][j] == 1) {

@@ -1,19 +1,10 @@
 #include "maze.h"
 
-#include <random>
 #include <algorithm>
+#include "random.h"
+
 
 namespace mcg {
-
-namespace {
-
-bool GenRandCond() {
-  static std::mt19937 rng(std::random_device{}());
-  static std::uniform_int_distribution<int> distribution(0, 1);
-  return distribution(rng);
-}
-
-} // namespace
 
 bool Maze::Solve(Indices curr, const Indices &target) {
   for (auto &cell : *this) {
@@ -62,7 +53,7 @@ bool Maze::SolveRecursive(Indices curr, const Indices &target) {
 
 void Maze::GenRightWalls(size_t row) {
   for (size_t j = 0; j < sets_.size() - 1; ++j) {
-    bool is_wall = GenRandCond();
+    bool is_wall = GenRandCond(0,1);
     if (is_wall || sets_[j] == sets_[j + 1]) {
       At(row, j).right_wall = true;
     } else {
@@ -77,7 +68,7 @@ void Maze::GenRightWalls(size_t row) {
 
 void Maze::GenLowerWalls(size_t row) {
   for (size_t j = 0; j < sets_.size(); ++j) {
-    bool is_wall = GenRandCond();
+    bool is_wall = GenRandCond(0,1);
     auto count = std::count(sets_.begin(), sets_.end(), sets_[j]);
     if (count != 1 && is_wall) {
       At(row, j).bottom_wall = true;
@@ -127,6 +118,9 @@ void Maze::AddLastRow() {
 }
 
 void Maze::Generate(size_t rows, size_t cols) {
+  if (rows == 0 || cols == 0) {
+      return;
+  }
   Clear();
   SetRows(rows);
   SetCols(cols);
