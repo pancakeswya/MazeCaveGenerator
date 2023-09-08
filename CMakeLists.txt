@@ -14,28 +14,36 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
+add_library(Cave STATIC
+            mcg/lib/cave/cave.h
+            mcg/lib/cave/cave.cc)
+
+add_library(Maze STATIC
+            mcg/lib/maze/maze.h
+            mcg/lib/maze/maze.cc)
+
 set(PROJECT_SOURCES
-        src/base/worker_thread.h
-        src/base/worker_thread.cc
-        src/model/cave.h
-        src/model/cave.cc
-        src/model/maze.h
-        src/model/maze.cc
-        src/view/cave_view.h
-        src/view/cave_view.cc
-        src/view/maze_view.h
-        src/view/maze_view.cc
-        src/view/loader.h
-        src/view/loader.cc
-        src/view/mainwindow.h
-        src/view/mainwindow.cc
-        ui/mainwindow.ui
-        src/main.cc
+        mcg/manager/cave_manager.h
+        mcg/manager/cave_manager.cc
+        mcg/manager/maze_manager.h
+        mcg/manager/maze_manager.cc
+        mcg/painter/cave_painter.h
+        mcg/painter/cave_painter.cc
+        mcg/painter/maze_painter.h
+        mcg/painter/maze_painter.cc
+        mcg/thread/worker_thread.h
+        mcg/thread/worker_thread.cc
+        mcg/view/loader.h
+        mcg/view/loader.cc
+        mcg/view/mainwindow.h
+        mcg/view/mainwindow.cc
+        mcg/view/ui/mainwindow.ui
+        mcg/main.cc
 )
 
-include_directories("includes/base/" "includes/model/" "includes/view/")
+include_directories("mcg/")
 
-set(CMAKE_AUTOUIC_SEARCH_PATHS ui)
+set(CMAKE_AUTOUIC_SEARCH_PATHS mcg/view/ui)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(MazeCaveGenerator
@@ -48,7 +56,7 @@ else()
     )
 endif()
 
-target_link_libraries(MazeCaveGenerator PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(MazeCaveGenerator PRIVATE Maze Cave Qt${QT_VERSION_MAJOR}::Widgets)
 
 set_target_properties(MazeCaveGenerator PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
