@@ -10,20 +10,13 @@ namespace mcg {
 Loader::Loader(QWidget *parent)
     : QWidget(parent), painter_(new CavePainter(cave_)), manager_(new CaveManager(cave_)) {}
 
-Loader::~Loader() {
-  delete painter_;
-  delete manager_;
-}
-
 void Loader::ChangeType(int type) {
-  delete painter_;
-  delete manager_;
   if (type) {
-    painter_ = new MazePainter(maze_);
-    manager_ = new MazeManager(maze_);
+    painter_.reset(new MazePainter(maze_));
+    manager_.reset(new MazeManager(maze_));
   } else {
-    painter_ = new CavePainter(cave_);
-    manager_ = new CaveManager(cave_);
+    painter_.reset(new CavePainter(cave_));
+    manager_.reset(new CaveManager(cave_));
   }
 }
 

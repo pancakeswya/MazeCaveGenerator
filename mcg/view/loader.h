@@ -2,6 +2,8 @@
 #define MAZECAVEGENERATOR_MCG_VIEW_LOADER_H
 
 #include <QWidget>
+#include <memory>
+#include <utility>
 
 #include "painter/painter.h"
 #include "manager/manager.h"
@@ -13,7 +15,7 @@ class Loader : public QWidget {
 
  public:
   Loader(QWidget *parent = nullptr);
-  ~Loader();
+  ~Loader() = default;
   bool OpenFile(const QString &);
   bool SaveFile(const QString &);
   void GenerateMaze(size_t, size_t);
@@ -30,8 +32,8 @@ class Loader : public QWidget {
 private:
  Cave cave_;
  Maze maze_;
- IPainter *painter_;
- IManager *manager_;
+ std::unique_ptr<IPainter> painter_;
+ std::unique_ptr<IManager> manager_;
 };
 
 }  // namespace mcg
