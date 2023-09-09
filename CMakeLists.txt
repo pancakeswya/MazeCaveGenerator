@@ -23,14 +23,10 @@ add_library(Maze STATIC
             mcg/lib/maze/maze.cc)
 
 set(PROJECT_SOURCES
-        mcg/manager/cave_manager.h
-        mcg/manager/cave_manager.cc
-        mcg/manager/maze_manager.h
-        mcg/manager/maze_manager.cc
-        mcg/painter/cave_painter.h
-        mcg/painter/cave_painter.cc
-        mcg/painter/maze_painter.h
-        mcg/painter/maze_painter.cc
+        mcg/manager/manager.h
+        mcg/manager/manager.cc
+        mcg/painter/painter.h
+        mcg/painter/painter.cc
         mcg/thread/worker_thread.h
         mcg/thread/worker_thread.cc
         mcg/view/loader.h

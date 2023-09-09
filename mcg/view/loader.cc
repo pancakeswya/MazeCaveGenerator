@@ -49,7 +49,7 @@ void Loader::NextGenCave() {
 void Loader::mousePressEvent(QMouseEvent *event) {
   if (event->button() == Qt::LeftButton) {
     bool event_is_ready =
-        manager_->CustomCellEvent(event->pos().x(), event->pos().y());
+        manager_->Event(event->pos().x(), event->pos().y());
     if (event_is_ready) {
       update();
     }
