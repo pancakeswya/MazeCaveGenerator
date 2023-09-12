@@ -1,5 +1,5 @@
 # MazeCaveGenerator
-Implementation of maze and cave generators. Also has some extended features like solving and etc.
+Implementation of maze and cave generators. Also has some extended features like solving and etc. 
 ## Features
 - Open/Save for special maze/cave format type text
 An example of such a file for maze(upper matrix right walls, lower matrix bottom walls):
