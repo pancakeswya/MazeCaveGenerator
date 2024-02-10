@@ -1,2 +1,0 @@
-/usr/bin/ar qc libCave.a CMakeFiles/Cave.dir/src/model/cave/generator.cc.o
-/usr/bin/ranlib libCave.a

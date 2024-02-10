@@ -7,6 +7,6 @@ namespace mcg::maze {
 
 extern WallsMap Generate(size_t rows, size_t cols);
 
-} // namespace mcg::maze
+}  // namespace mcg::maze
 
-#endif // MAZECAVEGENERATOR_MODEL_MAZE_GENERATOR_H_
+#endif  // MAZECAVEGENERATOR_MODEL_MAZE_GENERATOR_H_

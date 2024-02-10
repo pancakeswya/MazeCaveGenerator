@@ -8,6 +8,6 @@ namespace mcg::cave {
 extern WallsMap Generate(const Params& params);
 extern WallsMap GenerateNext(const WallsMap& walls_map, const Params& params);
 
-} // namespace mcg::cave
+}  // namespace mcg::cave
 
-#endif // MAZECAVEGENERATOR_MODEL_CAVE_GENERATOR_H_
+#endif  // MAZECAVEGENERATOR_MODEL_CAVE_GENERATOR_H_

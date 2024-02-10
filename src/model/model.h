@@ -1,10 +1,10 @@
 #ifndef MAZECAVEGENERATOR_SRC_MODEL_MODEL_H_
 #define MAZECAVEGENERATOR_SRC_MODEL_MODEL_H_
 
-#include "base/types.h"
-
-#include <utility>
 #include <string>
+#include <utility>
+
+#include "base/types.h"
 
 namespace mcg {
 
@@ -23,14 +23,15 @@ class Model {
 
   [[nodiscard]] const maze::WallsMap& GetMaze() const noexcept;
   [[nodiscard]] const cave::WallsMap& GetCave() const noexcept;
-  [[nodiscard]] const std::pair<bool, maze::SolutionMap>& GetMazeSolution() const noexcept;
+  [[nodiscard]] const std::pair<bool, maze::SolutionMap>& GetMazeSolution()
+      const noexcept;
+
  private:
   cave::WallsMap cave_map_;
   maze::WallsMap maze_map_;
   std::pair<bool, maze::SolutionMap> maze_solution_;
 };
 
+}  // namespace mcg
 
-} // namespace mcg
-
-#endif // MAZECAVEGENERATOR_SRC_MODEL_MODEL_H_
+#endif  // MAZECAVEGENERATOR_SRC_MODEL_MODEL_H_

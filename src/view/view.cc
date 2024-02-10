@@ -3,13 +3,13 @@
 #include <QFileDialog>
 #include <QMessageBox>
 
-#include "concurrency/worker_thread.h"
 #include "base/constants.h"
+#include "concurrency/worker_thread.h"
 #include "view/ui_view.h"
 
 namespace mcg {
 
-View::View(Controller* controller, QWidget *parent)
+View::View(Controller* controller, QWidget* parent)
     : QMainWindow(parent), ui_(new Ui::View) {
   ui_->setupUi(this);
   InitWidgets();
@@ -56,15 +56,24 @@ void View::InitWidgets() {
   connect(ui_->tab_widget, &QTabWidget::currentChanged, ui_->mcg_loader,
           &Loader::SetType);
   ui_->spinbox_delay->setRange(1, std::numeric_limits<int>::max());
-  ui_->horizontal_slider_maze_rows->setRange(constants::kRowsMin, constants::kRowsMax);
-  ui_->horizontal_slider_maze_cols->setRange(constants::kColsMin, constants::kColsMax);
-  ui_->horizontal_slider_cave_rows->setRange(constants::kRowsMin, constants::kRowsMax);
-  ui_->horizontal_slider_cave_cols->setRange(constants::kColsMin, constants::kColsMax);
-  ui_->spinbox_life_chance->setRange(constants::kLifeChanceMin, constants::kLifeChanceMax);
-  ui_->spinbox_live_limit_min->setRange(constants::kLimitsMin, constants::kLimitsMax);
-  ui_->spinbox_live_limit_max->setRange(constants::kLimitsMin, constants::kLimitsMax);
-  ui_->spinbox_born_limit_min->setRange(constants::kLimitsMin, constants::kLimitsMax);
-  ui_->spinbox_born_limit_max->setRange(constants::kLimitsMin, constants::kLimitsMax);
+  ui_->horizontal_slider_maze_rows->setRange(constants::kRowsMin,
+                                             constants::kRowsMax);
+  ui_->horizontal_slider_maze_cols->setRange(constants::kColsMin,
+                                             constants::kColsMax);
+  ui_->horizontal_slider_cave_rows->setRange(constants::kRowsMin,
+                                             constants::kRowsMax);
+  ui_->horizontal_slider_cave_cols->setRange(constants::kColsMin,
+                                             constants::kColsMax);
+  ui_->spinbox_life_chance->setRange(constants::kLifeChanceMin,
+                                     constants::kLifeChanceMax);
+  ui_->spinbox_live_limit_min->setRange(constants::kLimitsMin,
+                                        constants::kLimitsMax);
+  ui_->spinbox_live_limit_max->setRange(constants::kLimitsMin,
+                                        constants::kLimitsMax);
+  ui_->spinbox_born_limit_min->setRange(constants::kLimitsMin,
+                                        constants::kLimitsMax);
+  ui_->spinbox_born_limit_max->setRange(constants::kLimitsMin,
+                                        constants::kLimitsMax);
 }
 
 void View::OnOpenFileClicked() {
@@ -98,7 +107,8 @@ void View::OnGenerateMazeClicked() {
 void View::OnAutoGenerationClicked() {
   int delay = ui_->spinbox_delay->value();
   auto worker = new WorkerThread(delay);
-  connect(worker, SIGNAL(WorkIsRunning()), this, SLOT(OnGenerateCaveNextClicked()));
+  connect(worker, SIGNAL(WorkIsRunning()), this,
+          SLOT(OnGenerateCaveNextClicked()));
   connect(ui_->pushbutton_autogen_cave, &QPushButton::clicked, worker,
           &WorkerThread::FinishWork);
   connect(ui_->pushbutton_stop_autogen_cave, &QPushButton::clicked, worker,
@@ -121,40 +131,36 @@ void View::OnAutoGenerationClicked() {
 void View::OnDrawModeCaveClicked() {
   size_t rows = ui_->spinbox_cave_rows->value();
   size_t cols = ui_->spinbox_cave_cols->value();
-  ui_->mcg_loader->GenerateCave({
-    .rows = rows,
-    .cols = cols
-  });
+  ui_->mcg_loader->GenerateCave({.rows = rows, .cols = cols});
 }
 
-inline void View::OnGenerateCave(std::function<void(const cave::Params&)> generate) {
-    size_t rows = ui_->spinbox_cave_rows->value();
-    size_t cols = ui_->spinbox_cave_cols->value();
-    size_t life_chance = ui_->spinbox_life_chance->value();
-    Range born_limit = {ui_->spinbox_born_limit_min->value(),
-                        ui_->spinbox_born_limit_max->value()};
-    Range live_limit = {ui_->spinbox_live_limit_min->value(),
-                        ui_->spinbox_live_limit_max->value()};
-    cave::Params params = {
-        .rows = rows,
-        .cols = cols,
-        .life_chance = life_chance,
-        .live_limit = live_limit,
-        .born_limit = born_limit
-    };
-    generate(params);
+inline void View::OnGenerateCave(
+    std::function<void(const cave::Params&)> generate) {
+  size_t rows = ui_->spinbox_cave_rows->value();
+  size_t cols = ui_->spinbox_cave_cols->value();
+  size_t life_chance = ui_->spinbox_life_chance->value();
+  Range born_limit = {ui_->spinbox_born_limit_min->value(),
+                      ui_->spinbox_born_limit_max->value()};
+  Range live_limit = {ui_->spinbox_live_limit_min->value(),
+                      ui_->spinbox_live_limit_max->value()};
+  cave::Params params = {.rows = rows,
+                         .cols = cols,
+                         .life_chance = life_chance,
+                         .live_limit = live_limit,
+                         .born_limit = born_limit};
+  generate(params);
 }
 
 void View::OnGenerateCaveClicked() {
-    OnGenerateCave([&](const cave::Params& params) {
-        ui_->mcg_loader->GenerateCave(params);
-    });
+  OnGenerateCave([&](const cave::Params& params) {
+    ui_->mcg_loader->GenerateCave(params);
+  });
 }
 
 void View::OnGenerateCaveNextClicked() {
-    OnGenerateCave([&](const cave::Params& params) {
-        ui_->mcg_loader->GenerateCaveNext(params);
-    });
+  OnGenerateCave([&](const cave::Params& params) {
+    ui_->mcg_loader->GenerateCaveNext(params);
+  });
 }
 
 }  // namespace mcg

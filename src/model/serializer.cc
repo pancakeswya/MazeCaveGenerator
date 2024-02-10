@@ -7,8 +7,8 @@ namespace mcg {
 
 namespace {
 
-template<typename Tp, typename Pred>
-void SaveWalls(const Matrix<Tp>& mcg, Pred GetWalls, std::ofstream &os) {
+template <typename Tp, typename Pred>
+void SaveWalls(const Matrix<Tp>& mcg, Pred GetWalls, std::ofstream& os) {
   for (size_t i = 0; i < mcg.GetRows(); ++i) {
     for (size_t j = 0; j < mcg.GetCols(); ++j) {
       os << GetWalls(mcg[i][j]);
@@ -20,7 +20,7 @@ void SaveWalls(const Matrix<Tp>& mcg, Pred GetWalls, std::ofstream &os) {
   }
 }
 
-} // namespace
+}  // namespace
 
 namespace maze {
 
@@ -30,9 +30,12 @@ bool Marshal(const WallsMap& maze_map, const std::string& path) {
     return false;
   }
   file << maze_map.GetRows() << ' ' << maze_map.GetCols() << ' ' << '\n';
-  SaveWalls(maze_map, [](const Walls& cell) -> int { return cell.right_wall; }, file);
+  SaveWalls(
+      maze_map, [](const Walls& cell) -> int { return cell.right_wall; }, file);
   file << '\n';
-  SaveWalls(maze_map, [](const Walls& cell) -> int { return cell.bottom_wall; }, file);
+  SaveWalls(
+      maze_map, [](const Walls& cell) -> int { return cell.bottom_wall; },
+      file);
   return true;
 }
 
@@ -57,7 +60,7 @@ std::pair<bool, WallsMap> Unmarshal(const std::string& path) {
   return {true, maze_map};
 }
 
-} // namespace maze
+}  // namespace maze
 
 namespace cave {
 
@@ -67,7 +70,8 @@ bool Marshal(const WallsMap& cave_map, const std::string& path) {
     return false;
   }
   file << cave_map.GetRows() << ' ' << cave_map.GetCols() << ' ' << '\n';
-  SaveWalls(cave_map, [](Walls walls) -> int { return walls; }, file);
+  SaveWalls(
+      cave_map, [](Walls walls) -> int { return walls; }, file);
   return true;
 }
 
@@ -85,8 +89,6 @@ std::pair<bool, WallsMap> Unmarshal(const std::string& path) {
   return {true, walls_map};
 }
 
-} // namespace cave
+}  // namespace cave
 
-
-
-} // namespace mcg
+}  // namespace mcg

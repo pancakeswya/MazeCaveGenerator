@@ -9,17 +9,13 @@
 
 namespace mcg {
 
-enum GenerateType : short int {
-  kCave = false,
-  kMaze,
-  kTypesSize
-};
+enum GenerateType : short int { kCave = false, kMaze, kTypesSize };
 
 class Loader : public QWidget {
   Q_OBJECT
 
  public:
-  explicit Loader(QWidget *parent = nullptr) noexcept;
+  explicit Loader(QWidget* parent = nullptr) noexcept;
   ~Loader() override = default;
 
   void SetController(Controller* controller) noexcept;
@@ -30,13 +26,14 @@ class Loader : public QWidget {
   void GenerateMaze(size_t rows, size_t cols);
   void GenerateCave(const cave::Params& params);
 
-  void paintEvent(QPaintEvent *) override;
+  void paintEvent(QPaintEvent*) override;
  public slots:
   void GenerateCaveNext(const cave::Params& params);
   void SetType(int);
 
  protected:
   void mousePressEvent(QMouseEvent*) override;
+
  private:
   void DrawEventMaze(int x, int y);
   void DrawEventCave(int x, int y);

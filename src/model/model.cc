@@ -1,13 +1,14 @@
 #include "model/model.h"
-#include "model/maze/generator.h"
+
 #include "model/cave/generator.h"
+#include "model/maze/generator.h"
 #include "model/maze/solver.h"
 #include "model/serializer.h"
 
 namespace mcg {
 
 bool Model::LoadMaze(const std::string& path) {
-  auto[ok, maze_map] = maze::Unmarshal(path);
+  auto [ok, maze_map] = maze::Unmarshal(path);
   maze_map_ = std::move(maze_map);
   return ok;
 }
@@ -17,7 +18,7 @@ bool Model::SaveMaze(const std::string& path) {
 }
 
 bool Model::LoadCave(const std::string& path) {
-  auto[ok, cave_map] = cave::Unmarshal(path);
+  auto [ok, cave_map] = cave::Unmarshal(path);
   cave_map_ = std::move(cave_map);
   return ok;
 }
@@ -43,16 +44,13 @@ void Model::SolveMaze(const Indices& curr, const Indices& target) {
   maze_solution_ = maze::Solve(maze_map_, curr, target);
 }
 
-const maze::WallsMap& Model::GetMaze() const noexcept {
-  return maze_map_;
-}
+const maze::WallsMap& Model::GetMaze() const noexcept { return maze_map_; }
 
-const cave::WallsMap& Model::GetCave() const noexcept {
-  return cave_map_;
-}
+const cave::WallsMap& Model::GetCave() const noexcept { return cave_map_; }
 
-const std::pair<bool, maze::SolutionMap>& Model::GetMazeSolution() const noexcept {
+const std::pair<bool, maze::SolutionMap>& Model::GetMazeSolution()
+    const noexcept {
   return maze_solution_;
 }
 
-} // namespace mcg
+}  // namespace mcg

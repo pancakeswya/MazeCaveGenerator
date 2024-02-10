@@ -1,13 +1,15 @@
 #include "painter.h"
-#include "base/util.h"
 
 #include <QPainter>
+
+#include "base/util.h"
 
 namespace mcg {
 
 namespace maze {
 
-void Draw(QWidget *widget, const WallsMap& walls_map, const SolutionMap& solution_map) {
+void Draw(QWidget* widget, const WallsMap& walls_map,
+          const SolutionMap& solution_map) {
   if (!walls_map.GetRows() || !walls_map.GetCols()) {
     return;
   }
@@ -27,7 +29,7 @@ void Draw(QWidget *widget, const WallsMap& walls_map, const SolutionMap& solutio
                          Qt::black);
       }
       if (solution_map.Empty()) {
-          continue;
+        continue;
       }
       if (solution_map[i][j].visited) {
         Vector path_vector = solution_map[i][j].vector;
@@ -54,12 +56,14 @@ void Draw(QWidget *widget, const WallsMap& walls_map, const SolutionMap& solutio
   painter.end();
 }
 
-} // namespace maze
-
+}  // namespace maze
 
 namespace cave {
 
-void Draw(QWidget *widget, const WallsMap& walls_map) {
+void Draw(QWidget* widget, const WallsMap& walls_map) {
+  if (!walls_map.GetRows() || !walls_map.GetCols()) {
+    return;
+  }
   QPainter painter;
   painter.begin(widget);
   auto [scale_row, scale_col] = util::GetScaledCell(walls_map);
@@ -74,6 +78,6 @@ void Draw(QWidget *widget, const WallsMap& walls_map) {
   painter.end();
 }
 
-} // namespace cave
+}  // namespace cave
 
-} // namespace mcg
+}  // namespace mcg

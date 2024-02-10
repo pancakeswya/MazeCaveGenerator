@@ -2,7 +2,7 @@ OS           := $(shell uname -s)
 
 NAME         := MazeCaveGenerator
 
-SRC_DIR      := mcg
+SRC_DIR      := src
 BUILD_DIR    := build
 
 ifeq ($(OS), Linux)

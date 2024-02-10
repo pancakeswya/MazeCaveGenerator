@@ -1,9 +1,9 @@
 #ifndef MAZECAVEGENERATOR_SRC_BASE_TYPES_H_
 #define MAZECAVEGENERATOR_SRC_BASE_TYPES_H_
 
-#include "base/matrix.h"
-
 #include <utility>
+
+#include "base/matrix.h"
 
 namespace mcg {
 
@@ -13,13 +13,7 @@ using ScaledSize = std::pair<int, int>;
 
 namespace maze {
 
-enum class Vector : short int {
-  kIdle = 0,
-  kUp,
-  kDown,
-  kRight,
-  kLeft
-};
+enum class Vector : short int { kIdle = 0, kUp, kDown, kRight, kLeft };
 
 struct Walls {
   bool right_wall;
@@ -34,7 +28,7 @@ struct Path {
 using WallsMap = Matrix<Walls>;
 using SolutionMap = Matrix<Path>;
 
-} // namespace maze
+}  // namespace maze
 
 namespace cave {
 
@@ -51,8 +45,8 @@ using Walls = char;
 
 using WallsMap = Matrix<Walls>;
 
-} // namespace cave
+}  // namespace cave
 
-} // namespace mcg
+}  // namespace mcg
 
-#endif // MAZECAVEGENERATOR_SRC_BASE_TYPES_H_
+#endif  // MAZECAVEGENERATOR_SRC_BASE_TYPES_H_

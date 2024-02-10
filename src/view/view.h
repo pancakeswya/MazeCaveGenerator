@@ -1,10 +1,10 @@
 #ifndef MAZECAVEGENERATOR_MCG_VIEW_MAINWINDOW_H_
 #define MAZECAVEGENERATOR_MCG_VIEW_MAINWINDOW_H_
 
-#include "controller/controller.h"
-
 #include <QMainWindow>
 #include <functional>
+
+#include "controller/controller.h"
 
 namespace mcg {
 
@@ -18,12 +18,12 @@ class View : public QMainWindow {
   Q_OBJECT
 
  public:
-  explicit View(Controller* controller = nullptr, QWidget *parent = nullptr);
+  explicit View(Controller *controller = nullptr, QWidget *parent = nullptr);
   ~View() override;
 
  private:
   void InitWidgets();
-  void OnGenerateCave(std::function<void(const cave::Params&)> generate);
+  void OnGenerateCave(std::function<void(const cave::Params &)> generate);
 
   Ui::View *ui_;
  private slots:

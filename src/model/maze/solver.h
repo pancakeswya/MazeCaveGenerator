@@ -5,8 +5,10 @@
 
 namespace mcg::maze {
 
-extern std::pair<bool, SolutionMap> Solve(const WallsMap& maze_map, const Indices& curr, const Indices& target);
+extern std::pair<bool, SolutionMap> Solve(const WallsMap& maze_map,
+                                          const Indices& curr,
+                                          const Indices& target);
 
-} // namespace mcg::maze
+}  // namespace mcg::maze
 
-#endif // MAZECAVEGENERATOR_MODEL_MAZE_SOLVER_H_
+#endif  // MAZECAVEGENERATOR_MODEL_MAZE_SOLVER_H_

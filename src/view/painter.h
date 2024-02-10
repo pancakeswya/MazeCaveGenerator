@@ -9,15 +9,16 @@ namespace mcg {
 
 namespace maze {
 
-extern void Draw(QWidget *widget, const WallsMap& walls_map, const SolutionMap& solution_map);
+extern void Draw(QWidget* widget, const WallsMap& walls_map,
+                 const SolutionMap& solution_map);
 
-} // namespace maze
+}  // namespace maze
 
 namespace cave {
 
-extern void Draw(QWidget *widget, const WallsMap& walls_map);
+extern void Draw(QWidget* widget, const WallsMap& walls_map);
 
-} // namespace cave
+}  // namespace cave
 
 }  // namespace mcg
 

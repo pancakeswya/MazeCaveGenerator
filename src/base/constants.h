@@ -13,6 +13,6 @@ inline constexpr int kLifeChanceMax = 100;
 inline constexpr int kLimitsMin = 0;
 inline constexpr int kLimitsMax = 7;
 
-} // namespace mcg::constants
+}  // namespace mcg::constants
 
 #endif  // MAZECAVEGENERATOR_SRC_BASE_CONSTANTS_H_

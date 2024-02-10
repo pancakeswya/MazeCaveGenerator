@@ -1,7 +1,7 @@
 #include <QApplication>
 
-#include "model/model.h"
 #include "controller/controller.h"
+#include "model/model.h"
 #include "view/view.h"
 
 int main(int argc, char *argv[]) {

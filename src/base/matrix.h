@@ -1,12 +1,12 @@
 #ifndef MAZECAVEGENERATOR_SRC_BASE_MATRIX_H_
 #define MAZECAVEGENERATOR_SRC_BASE_MATRIX_H_
 
-#include <vector>
 #include <stdexcept>
+#include <vector>
 
 namespace mcg {
 
-template<typename Tp>
+template <typename Tp>
 class Matrix {
  public:
   using value_type = Tp;
@@ -19,16 +19,16 @@ class Matrix {
   using iterator = typename std::vector<Tp>::iterator;
   using const_iterator = typename std::vector<Tp>::const_iterator;
 
-  Matrix() : rows_(), cols_() {} 
+  Matrix() : rows_(), cols_() {}
 
   Matrix(size_type rows, size_type cols)
-    : rows_(rows), cols_(cols), data_(rows * cols) {}
+      : rows_(rows), cols_(cols), data_(rows * cols) {}
 
   Matrix(const Matrix& other)
       : rows_(other.rows_), cols_(other.cols_), data_(other.data_) {}
 
   Matrix(Matrix&& other) noexcept
-    : rows_(other.rows_), cols_(other.cols_), data_(std::move(other.data_)) {
+      : rows_(other.rows_), cols_(other.cols_), data_(std::move(other.data_)) {
     other.rows_ = other.cols_ = 0;
   }
 
@@ -50,9 +50,7 @@ class Matrix {
     return *this;
   }
 
-  pointer operator[](size_type row) noexcept {
-    return &data_[row * cols_];
-  }
+  pointer operator[](size_type row) noexcept { return &data_[row * cols_]; }
 
   const_pointer operator[](size_type row) const noexcept {
     return &data_[row * cols_];
@@ -80,30 +78,20 @@ class Matrix {
     std::swap(data_, other.data_);
   }
 
-  iterator begin() noexcept {
-    return data_.begin();
-  }
+  iterator begin() noexcept { return data_.begin(); }
 
-  const_iterator begin() const noexcept {
-    return data_.begin();
-  }
+  const_iterator begin() const noexcept { return data_.begin(); }
 
-  iterator end() noexcept {
-    return data_.end();
-  }
+  iterator end() noexcept { return data_.end(); }
 
-  const_iterator end() const noexcept {
-    return data_.end();
-  }
+  const_iterator end() const noexcept { return data_.end(); }
 
   void Clear() noexcept {
     data_.clear();
     cols_ = rows_ = 0;
   }
 
-  bool Empty() const noexcept {
-    return data_.empty();
-  }
+  bool Empty() const noexcept { return data_.empty(); }
 
   reference At(size_type row, size_type col) {
     if (row >= rows_ || col >= cols_) {
@@ -119,19 +107,16 @@ class Matrix {
     return data_[row * cols_ + col];
   }
 
-  size_type GetRows() const noexcept {
-    return rows_;
-  }
+  size_type GetRows() const noexcept { return rows_; }
 
-  size_type GetCols() const noexcept {
-    return cols_;
-  }
+  size_type GetCols() const noexcept { return cols_; }
 
   void SetCols(size_type cols) {
     Matrix tmp(rows_, cols);
     size_type cols_to_copy = std::min(cols_, cols);
     for (size_type i = 0; i < rows_; ++i) {
-      std::copy(&tmp.data_[i * cols], &tmp.data_[i * cols] + cols_to_copy, &data_[i * cols_]);
+      std::copy(&tmp.data_[i * cols], &tmp.data_[i * cols] + cols_to_copy,
+                &data_[i * cols_]);
     }
     Swap(tmp);
   }
@@ -146,6 +131,6 @@ class Matrix {
   std::vector<Tp> data_;
 };
 
-} // namespace mcg
+}  // namespace mcg
 
 #endif  // MAZECAVEGENERATOR_SRC_BASE_MATRIX_H_
