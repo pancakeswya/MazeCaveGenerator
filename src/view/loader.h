@@ -23,6 +23,9 @@ class Loader : public QWidget {
   bool OpenFile(const QString& path);
   bool SaveFile(const QString& path);
 
+  size_t GetRows() const noexcept;
+  size_t GetCols() const noexcept;
+
   void GenerateMaze(size_t rows, size_t cols);
   void GenerateCave(const cave::Params& params);
 

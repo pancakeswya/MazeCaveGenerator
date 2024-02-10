@@ -9,13 +9,28 @@
 
 namespace mcg {
 
-Loader::Loader(QWidget* parent) noexcept : QWidget(parent), type_() {}
+Loader::Loader(QWidget* parent) noexcept
+    : controller_(), QWidget(parent), type_() {}
 
 void Loader::SetController(Controller* controller) noexcept {
   controller_ = controller;
 }
 
 void Loader::SetType(int type) { type_ = type; }
+
+size_t Loader::GetRows() const noexcept {
+  if (type_ == GenerateType::kMaze) {
+    return maze_map_.GetRows();
+  }
+  return cave_map_.GetRows();
+}
+
+size_t Loader::GetCols() const noexcept {
+  if (type_ == GenerateType::kMaze) {
+    return maze_map_.GetCols();
+  }
+  return cave_map_.GetCols();
+}
 
 bool Loader::OpenFile(const QString& path) {
   bool is_loaded;

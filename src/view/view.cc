@@ -83,6 +83,17 @@ void View::OnOpenFileClicked() {
     bool is_opened = ui_->mcg_loader->OpenFile(filepath);
     if (!is_opened) {
       QMessageBox::warning(this, "Invalid file", "Invalid file or missing");
+      return;
+    }
+    int idx = ui_->tab_widget->currentIndex();
+    size_t rows = ui_->mcg_loader->GetRows();
+    size_t cols = ui_->mcg_loader->GetCols();
+    if (idx == GenerateType::kMaze) {
+      ui_->spinbox_maze_rows->setValue(rows);
+      ui_->spinbox_maze_cols->setValue(cols);
+    } else {
+      ui_->spinbox_cave_rows->setValue(rows);
+      ui_->spinbox_cave_cols->setValue(cols);
     }
   }
 }
