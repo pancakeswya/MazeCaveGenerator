@@ -14,30 +14,48 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
-add_library(Cave STATIC
-            mcg/lib/cave/cave.h
-            mcg/lib/cave/cave.cc)
-
 add_library(Maze STATIC
-            mcg/lib/maze/maze.h
-            mcg/lib/maze/maze.cc)
+            src/model/maze/generator.cc
+            src/model/maze/generator.h
+            src/model/maze/solver.cc
+            src/model/maze/solver.h)
 
-set(PROJECT_SOURCES
-        mcg/manager/manager.h
-        mcg/manager/manager.cc
-        mcg/painter/painter.h
-        mcg/painter/painter.cc
-        mcg/thread/worker_thread.h
-        mcg/thread/worker_thread.cc
-        mcg/view/loader.h
-        mcg/view/loader.cc
-        mcg/view/mainwindow.h
-        mcg/view/mainwindow.cc
-        mcg/view/ui/mainwindow.ui
-        mcg/main.cc
-)
+add_library(Cave STATIC
+            src/model/cave/generator.cc
+            src/model/cave/generator.h)
 
-include_directories("mcg/")
+add_library(Serializer STATIC
+            src/model/serializer.cc
+            src/model/serializer.h)
+
+add_library(Model STATIC
+            src/model/model.cc
+            src/model/model.h)
+
+target_link_libraries(Model Maze Cave Serializer)
+
+add_library(Controller STATIC
+            src/controller/controller.cc
+            src/controller/controller.h)
+
+target_link_libraries(Controller Model)
+
+#set(PROJECT_SOURCES
+#        mcg/manager/manager.h
+#        mcg/manager/manager.cc
+#        mcg/painter/painter.h
+#        mcg/painter/painter.cc
+#        mcg/thread/worker_thread.h
+#        mcg/thread/worker_thread.cc
+#        mcg/view/loader.h
+#        mcg/view/loader.cc
+#        mcg/view/mainwindow.h
+#        mcg/view/mainwindow.cc
+#        mcg/view/ui/mainwindow.ui
+#        mcg/main.cc
+#)
+
+include_directories("src/")
 
 set(CMAKE_AUTOUIC_SEARCH_PATHS mcg/view/ui)
 

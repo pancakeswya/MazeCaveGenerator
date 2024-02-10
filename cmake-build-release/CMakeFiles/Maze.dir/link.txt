@@ -1,0 +1,2 @@
+/usr/bin/ar qc libMaze.a CMakeFiles/Maze.dir/Maze_autogen/mocs_compilation.cpp.o CMakeFiles/Maze.dir/src/model/maze/generator.cc.o CMakeFiles/Maze.dir/src/model/maze/solver.cc.o
+/usr/bin/ranlib libMaze.a
