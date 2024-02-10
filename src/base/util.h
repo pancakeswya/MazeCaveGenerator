@@ -15,9 +15,8 @@ inline int GenRandomNum(int left, int right) {
 }
 
 template <typename Tp>
-inline ScaledSize GetScaledCell(const Matrix<Tp> &m) {
-  return {float(constants::kSize) / m.GetRows(),
-          float(constants::kSize) / m.GetCols()};
+inline ScaledSize GetScaledCell(int w, int h, const Matrix<Tp> &m) {
+  return {float(w) / m.GetRows(), float(h) / m.GetCols()};
 }
 
 }  // namespace mcg::util

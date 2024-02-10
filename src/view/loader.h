@@ -26,12 +26,12 @@ class Loader : public QWidget {
   void GenerateMaze(size_t rows, size_t cols);
   void GenerateCave(const cave::Params& params);
 
-  void paintEvent(QPaintEvent*) override;
  public slots:
   void GenerateCaveNext(const cave::Params& params);
   void SetType(int);
 
  protected:
+  void paintEvent(QPaintEvent*) override;
   void mousePressEvent(QMouseEvent*) override;
 
  private:

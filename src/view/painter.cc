@@ -15,9 +15,10 @@ void Draw(QWidget* widget, const WallsMap& walls_map,
   }
   QPainter painter;
   painter.begin(widget);
-  auto [scale_row, scale_col] = util::GetScaledCell(walls_map);
-  painter.fillRect(0, 0, widget->width(), 2, Qt::black);
-  painter.fillRect(0, 0, 2, widget->height(), Qt::black);
+  auto [scale_row, scale_col] =
+      util::GetScaledCell(widget->height(), widget->width(), walls_map);
+  painter.fillRect(0, 0, scale_col * walls_map.GetCols(), 2, Qt::black);
+  painter.fillRect(0, 0, 2, scale_row * walls_map.GetRows(), Qt::black);
   for (size_t i = 0; i < walls_map.GetRows(); ++i) {
     for (size_t j = 0; j < walls_map.GetCols(); ++j) {
       if (walls_map[i][j].right_wall) {
@@ -66,10 +67,11 @@ void Draw(QWidget* widget, const WallsMap& walls_map) {
   }
   QPainter painter;
   painter.begin(widget);
-  auto [scale_row, scale_col] = util::GetScaledCell(walls_map);
+  auto [scale_row, scale_col] =
+      util::GetScaledCell(widget->height(), widget->width(), walls_map);
   for (size_t i = 0; i < walls_map.GetRows(); ++i) {
     for (size_t j = 0; j < walls_map.GetCols(); ++j) {
-      if (walls_map[i][j] == 1) {
+      if (walls_map[i][j]) {
         painter.fillRect(j * scale_col, i * scale_row, scale_col, scale_row,
                          Qt::black);
       }

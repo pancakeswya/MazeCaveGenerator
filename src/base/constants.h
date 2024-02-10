@@ -3,7 +3,6 @@
 
 namespace mcg::constants {
 
-inline constexpr int kSize = 500;
 inline constexpr int kColsMax = 50;
 inline constexpr int kRowsMax = 50;
 inline constexpr int kColsMin = 0;

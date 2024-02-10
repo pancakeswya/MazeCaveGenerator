@@ -41,7 +41,7 @@ struct Params {
 };
 
 // using char because bool vector is fucked up
-using Walls = char;
+using Walls = int;
 
 using WallsMap = Matrix<Walls>;
 

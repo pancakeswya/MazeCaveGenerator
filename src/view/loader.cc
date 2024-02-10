@@ -61,7 +61,8 @@ void Loader::DrawEventMaze(int x, int y) {
   static int indices_count_ = 0;
   static Indices indices_[2] = {};
 
-  auto [scaled_row, scaled_col] = util::GetScaledCell(maze_map_);
+  auto [scaled_row, scaled_col] =
+      util::GetScaledCell(height(), width(), maze_map_);
   indices_[indices_count_++] = {y / scaled_row, x / scaled_col};
   // solve on second cell pick
   if (indices_count_ == 2) {
@@ -79,7 +80,8 @@ void Loader::DrawEventCave(int x, int y) {
   if (!cave_map_.GetCols() || !cave_map_.GetRows()) {
     return;
   }
-  auto [scaled_row, scaled_col] = util::GetScaledCell(cave_map_);
+  auto [scaled_row, scaled_col] =
+      util::GetScaledCell(height(), width(), cave_map_);
   cave_map_[y / scaled_row][x / scaled_col] = true;
   update();
 }

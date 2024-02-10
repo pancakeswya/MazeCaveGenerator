@@ -1,5 +1,5 @@
-#ifndef MAZECAVEGENERATOR_MCG_VIEW_MAINWINDOW_H_
-#define MAZECAVEGENERATOR_MCG_VIEW_MAINWINDOW_H_
+#ifndef MAZECAVEGENERATOR_SRC_VIEW_VIEW_H_
+#define MAZECAVEGENERATOR_SRC_VIEW_VIEW_H_
 
 #include <QMainWindow>
 #include <functional>
@@ -38,4 +38,4 @@ class View : public QMainWindow {
 
 }  // namespace mcg
 
-#endif  // MAZECAVEGENERATOR_MCG_VIEW_MAINWINDOW_H
+#endif  // MAZECAVEGENERATOR_SRC_VIEW_VIEW_H
