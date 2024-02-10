@@ -78,11 +78,8 @@ set(CMAKE_MAKEFILE_OUTPUTS
 
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
-  "CMakeFiles/Maze_autogen.dir/AutogenInfo.json"
-  "CMakeFiles/Cave_autogen.dir/AutogenInfo.json"
-  "CMakeFiles/Serializer_autogen.dir/AutogenInfo.json"
-  "CMakeFiles/Model_autogen.dir/AutogenInfo.json"
-  "CMakeFiles/Controller_autogen.dir/AutogenInfo.json"
+  "CMakeFiles/Painter_autogen.dir/AutogenInfo.json"
+  "CMakeFiles/Worker_autogen.dir/AutogenInfo.json"
   "CMakeFiles/MazeCaveGenerator_autogen.dir/AutogenInfo.json"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   )
@@ -94,17 +91,13 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/Serializer.dir/DependInfo.cmake"
   "CMakeFiles/Model.dir/DependInfo.cmake"
   "CMakeFiles/Controller.dir/DependInfo.cmake"
+  "CMakeFiles/Painter.dir/DependInfo.cmake"
+  "CMakeFiles/Worker.dir/DependInfo.cmake"
   "CMakeFiles/MazeCaveGenerator.dir/DependInfo.cmake"
-  "CMakeFiles/Maze_autogen_timestamp_deps.dir/DependInfo.cmake"
-  "CMakeFiles/Maze_autogen.dir/DependInfo.cmake"
-  "CMakeFiles/Cave_autogen_timestamp_deps.dir/DependInfo.cmake"
-  "CMakeFiles/Cave_autogen.dir/DependInfo.cmake"
-  "CMakeFiles/Serializer_autogen_timestamp_deps.dir/DependInfo.cmake"
-  "CMakeFiles/Serializer_autogen.dir/DependInfo.cmake"
-  "CMakeFiles/Model_autogen_timestamp_deps.dir/DependInfo.cmake"
-  "CMakeFiles/Model_autogen.dir/DependInfo.cmake"
-  "CMakeFiles/Controller_autogen_timestamp_deps.dir/DependInfo.cmake"
-  "CMakeFiles/Controller_autogen.dir/DependInfo.cmake"
+  "CMakeFiles/Painter_autogen_timestamp_deps.dir/DependInfo.cmake"
+  "CMakeFiles/Painter_autogen.dir/DependInfo.cmake"
+  "CMakeFiles/Worker_autogen_timestamp_deps.dir/DependInfo.cmake"
+  "CMakeFiles/Worker_autogen.dir/DependInfo.cmake"
   "CMakeFiles/MazeCaveGenerator_autogen_timestamp_deps.dir/DependInfo.cmake"
   "CMakeFiles/MazeCaveGenerator_autogen.dir/DependInfo.cmake"
   )

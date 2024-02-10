@@ -182,6 +182,32 @@ Controller/fast:
 .PHONY : Controller/fast
 
 #=============================================================================
+# Target rules for targets named Painter
+
+# Build rule for target.
+Painter: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Painter
+.PHONY : Painter
+
+# fast build rule for target.
+Painter/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Painter.dir/build.make CMakeFiles/Painter.dir/build
+.PHONY : Painter/fast
+
+#=============================================================================
+# Target rules for targets named Worker
+
+# Build rule for target.
+Worker: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Worker
+.PHONY : Worker
+
+# fast build rule for target.
+Worker/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Worker.dir/build.make CMakeFiles/Worker.dir/build
+.PHONY : Worker/fast
+
+#=============================================================================
 # Target rules for targets named MazeCaveGenerator
 
 # Build rule for target.
@@ -195,134 +221,56 @@ MazeCaveGenerator/fast:
 .PHONY : MazeCaveGenerator/fast
 
 #=============================================================================
-# Target rules for targets named Maze_autogen_timestamp_deps
+# Target rules for targets named Painter_autogen_timestamp_deps
 
 # Build rule for target.
-Maze_autogen_timestamp_deps: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Maze_autogen_timestamp_deps
-.PHONY : Maze_autogen_timestamp_deps
+Painter_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Painter_autogen_timestamp_deps
+.PHONY : Painter_autogen_timestamp_deps
 
 # fast build rule for target.
-Maze_autogen_timestamp_deps/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maze_autogen_timestamp_deps.dir/build.make CMakeFiles/Maze_autogen_timestamp_deps.dir/build
-.PHONY : Maze_autogen_timestamp_deps/fast
+Painter_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Painter_autogen_timestamp_deps.dir/build.make CMakeFiles/Painter_autogen_timestamp_deps.dir/build
+.PHONY : Painter_autogen_timestamp_deps/fast
 
 #=============================================================================
-# Target rules for targets named Maze_autogen
+# Target rules for targets named Painter_autogen
 
 # Build rule for target.
-Maze_autogen: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Maze_autogen
-.PHONY : Maze_autogen
+Painter_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Painter_autogen
+.PHONY : Painter_autogen
 
 # fast build rule for target.
-Maze_autogen/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maze_autogen.dir/build.make CMakeFiles/Maze_autogen.dir/build
-.PHONY : Maze_autogen/fast
+Painter_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Painter_autogen.dir/build.make CMakeFiles/Painter_autogen.dir/build
+.PHONY : Painter_autogen/fast
 
 #=============================================================================
-# Target rules for targets named Cave_autogen_timestamp_deps
+# Target rules for targets named Worker_autogen_timestamp_deps
 
 # Build rule for target.
-Cave_autogen_timestamp_deps: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Cave_autogen_timestamp_deps
-.PHONY : Cave_autogen_timestamp_deps
+Worker_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Worker_autogen_timestamp_deps
+.PHONY : Worker_autogen_timestamp_deps
 
 # fast build rule for target.
-Cave_autogen_timestamp_deps/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cave_autogen_timestamp_deps.dir/build.make CMakeFiles/Cave_autogen_timestamp_deps.dir/build
-.PHONY : Cave_autogen_timestamp_deps/fast
+Worker_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Worker_autogen_timestamp_deps.dir/build.make CMakeFiles/Worker_autogen_timestamp_deps.dir/build
+.PHONY : Worker_autogen_timestamp_deps/fast
 
 #=============================================================================
-# Target rules for targets named Cave_autogen
+# Target rules for targets named Worker_autogen
 
 # Build rule for target.
-Cave_autogen: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Cave_autogen
-.PHONY : Cave_autogen
+Worker_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Worker_autogen
+.PHONY : Worker_autogen
 
 # fast build rule for target.
-Cave_autogen/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cave_autogen.dir/build.make CMakeFiles/Cave_autogen.dir/build
-.PHONY : Cave_autogen/fast
-
-#=============================================================================
-# Target rules for targets named Serializer_autogen_timestamp_deps
-
-# Build rule for target.
-Serializer_autogen_timestamp_deps: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Serializer_autogen_timestamp_deps
-.PHONY : Serializer_autogen_timestamp_deps
-
-# fast build rule for target.
-Serializer_autogen_timestamp_deps/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Serializer_autogen_timestamp_deps.dir/build.make CMakeFiles/Serializer_autogen_timestamp_deps.dir/build
-.PHONY : Serializer_autogen_timestamp_deps/fast
-
-#=============================================================================
-# Target rules for targets named Serializer_autogen
-
-# Build rule for target.
-Serializer_autogen: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Serializer_autogen
-.PHONY : Serializer_autogen
-
-# fast build rule for target.
-Serializer_autogen/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Serializer_autogen.dir/build.make CMakeFiles/Serializer_autogen.dir/build
-.PHONY : Serializer_autogen/fast
-
-#=============================================================================
-# Target rules for targets named Model_autogen_timestamp_deps
-
-# Build rule for target.
-Model_autogen_timestamp_deps: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Model_autogen_timestamp_deps
-.PHONY : Model_autogen_timestamp_deps
-
-# fast build rule for target.
-Model_autogen_timestamp_deps/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Model_autogen_timestamp_deps.dir/build.make CMakeFiles/Model_autogen_timestamp_deps.dir/build
-.PHONY : Model_autogen_timestamp_deps/fast
-
-#=============================================================================
-# Target rules for targets named Model_autogen
-
-# Build rule for target.
-Model_autogen: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Model_autogen
-.PHONY : Model_autogen
-
-# fast build rule for target.
-Model_autogen/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Model_autogen.dir/build.make CMakeFiles/Model_autogen.dir/build
-.PHONY : Model_autogen/fast
-
-#=============================================================================
-# Target rules for targets named Controller_autogen_timestamp_deps
-
-# Build rule for target.
-Controller_autogen_timestamp_deps: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Controller_autogen_timestamp_deps
-.PHONY : Controller_autogen_timestamp_deps
-
-# fast build rule for target.
-Controller_autogen_timestamp_deps/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Controller_autogen_timestamp_deps.dir/build.make CMakeFiles/Controller_autogen_timestamp_deps.dir/build
-.PHONY : Controller_autogen_timestamp_deps/fast
-
-#=============================================================================
-# Target rules for targets named Controller_autogen
-
-# Build rule for target.
-Controller_autogen: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Controller_autogen
-.PHONY : Controller_autogen
-
-# fast build rule for target.
-Controller_autogen/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Controller_autogen.dir/build.make CMakeFiles/Controller_autogen.dir/build
-.PHONY : Controller_autogen/fast
+Worker_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Worker_autogen.dir/build.make CMakeFiles/Worker_autogen.dir/build
+.PHONY : Worker_autogen/fast
 
 #=============================================================================
 # Target rules for targets named MazeCaveGenerator_autogen_timestamp_deps
@@ -350,54 +298,6 @@ MazeCaveGenerator_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MazeCaveGenerator_autogen.dir/build.make CMakeFiles/MazeCaveGenerator_autogen.dir/build
 .PHONY : MazeCaveGenerator_autogen/fast
 
-Cave_autogen/mocs_compilation.o: Cave_autogen/mocs_compilation.cpp.o
-.PHONY : Cave_autogen/mocs_compilation.o
-
-# target to build an object file
-Cave_autogen/mocs_compilation.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cave.dir/build.make CMakeFiles/Cave.dir/Cave_autogen/mocs_compilation.cpp.o
-.PHONY : Cave_autogen/mocs_compilation.cpp.o
-
-Cave_autogen/mocs_compilation.i: Cave_autogen/mocs_compilation.cpp.i
-.PHONY : Cave_autogen/mocs_compilation.i
-
-# target to preprocess a source file
-Cave_autogen/mocs_compilation.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cave.dir/build.make CMakeFiles/Cave.dir/Cave_autogen/mocs_compilation.cpp.i
-.PHONY : Cave_autogen/mocs_compilation.cpp.i
-
-Cave_autogen/mocs_compilation.s: Cave_autogen/mocs_compilation.cpp.s
-.PHONY : Cave_autogen/mocs_compilation.s
-
-# target to generate assembly for a file
-Cave_autogen/mocs_compilation.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cave.dir/build.make CMakeFiles/Cave.dir/Cave_autogen/mocs_compilation.cpp.s
-.PHONY : Cave_autogen/mocs_compilation.cpp.s
-
-Controller_autogen/mocs_compilation.o: Controller_autogen/mocs_compilation.cpp.o
-.PHONY : Controller_autogen/mocs_compilation.o
-
-# target to build an object file
-Controller_autogen/mocs_compilation.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Controller.dir/build.make CMakeFiles/Controller.dir/Controller_autogen/mocs_compilation.cpp.o
-.PHONY : Controller_autogen/mocs_compilation.cpp.o
-
-Controller_autogen/mocs_compilation.i: Controller_autogen/mocs_compilation.cpp.i
-.PHONY : Controller_autogen/mocs_compilation.i
-
-# target to preprocess a source file
-Controller_autogen/mocs_compilation.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Controller.dir/build.make CMakeFiles/Controller.dir/Controller_autogen/mocs_compilation.cpp.i
-.PHONY : Controller_autogen/mocs_compilation.cpp.i
-
-Controller_autogen/mocs_compilation.s: Controller_autogen/mocs_compilation.cpp.s
-.PHONY : Controller_autogen/mocs_compilation.s
-
-# target to generate assembly for a file
-Controller_autogen/mocs_compilation.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Controller.dir/build.make CMakeFiles/Controller.dir/Controller_autogen/mocs_compilation.cpp.s
-.PHONY : Controller_autogen/mocs_compilation.cpp.s
-
 MazeCaveGenerator_autogen/mocs_compilation.o: MazeCaveGenerator_autogen/mocs_compilation.cpp.o
 .PHONY : MazeCaveGenerator_autogen/mocs_compilation.o
 
@@ -422,77 +322,77 @@ MazeCaveGenerator_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MazeCaveGenerator.dir/build.make CMakeFiles/MazeCaveGenerator.dir/MazeCaveGenerator_autogen/mocs_compilation.cpp.s
 .PHONY : MazeCaveGenerator_autogen/mocs_compilation.cpp.s
 
-Maze_autogen/mocs_compilation.o: Maze_autogen/mocs_compilation.cpp.o
-.PHONY : Maze_autogen/mocs_compilation.o
+Painter_autogen/mocs_compilation.o: Painter_autogen/mocs_compilation.cpp.o
+.PHONY : Painter_autogen/mocs_compilation.o
 
 # target to build an object file
-Maze_autogen/mocs_compilation.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maze.dir/build.make CMakeFiles/Maze.dir/Maze_autogen/mocs_compilation.cpp.o
-.PHONY : Maze_autogen/mocs_compilation.cpp.o
+Painter_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Painter.dir/build.make CMakeFiles/Painter.dir/Painter_autogen/mocs_compilation.cpp.o
+.PHONY : Painter_autogen/mocs_compilation.cpp.o
 
-Maze_autogen/mocs_compilation.i: Maze_autogen/mocs_compilation.cpp.i
-.PHONY : Maze_autogen/mocs_compilation.i
+Painter_autogen/mocs_compilation.i: Painter_autogen/mocs_compilation.cpp.i
+.PHONY : Painter_autogen/mocs_compilation.i
 
 # target to preprocess a source file
-Maze_autogen/mocs_compilation.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maze.dir/build.make CMakeFiles/Maze.dir/Maze_autogen/mocs_compilation.cpp.i
-.PHONY : Maze_autogen/mocs_compilation.cpp.i
+Painter_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Painter.dir/build.make CMakeFiles/Painter.dir/Painter_autogen/mocs_compilation.cpp.i
+.PHONY : Painter_autogen/mocs_compilation.cpp.i
 
-Maze_autogen/mocs_compilation.s: Maze_autogen/mocs_compilation.cpp.s
-.PHONY : Maze_autogen/mocs_compilation.s
+Painter_autogen/mocs_compilation.s: Painter_autogen/mocs_compilation.cpp.s
+.PHONY : Painter_autogen/mocs_compilation.s
 
 # target to generate assembly for a file
-Maze_autogen/mocs_compilation.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Maze.dir/build.make CMakeFiles/Maze.dir/Maze_autogen/mocs_compilation.cpp.s
-.PHONY : Maze_autogen/mocs_compilation.cpp.s
+Painter_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Painter.dir/build.make CMakeFiles/Painter.dir/Painter_autogen/mocs_compilation.cpp.s
+.PHONY : Painter_autogen/mocs_compilation.cpp.s
 
-Model_autogen/mocs_compilation.o: Model_autogen/mocs_compilation.cpp.o
-.PHONY : Model_autogen/mocs_compilation.o
+Worker_autogen/mocs_compilation.o: Worker_autogen/mocs_compilation.cpp.o
+.PHONY : Worker_autogen/mocs_compilation.o
 
 # target to build an object file
-Model_autogen/mocs_compilation.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Model.dir/build.make CMakeFiles/Model.dir/Model_autogen/mocs_compilation.cpp.o
-.PHONY : Model_autogen/mocs_compilation.cpp.o
+Worker_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Worker.dir/build.make CMakeFiles/Worker.dir/Worker_autogen/mocs_compilation.cpp.o
+.PHONY : Worker_autogen/mocs_compilation.cpp.o
 
-Model_autogen/mocs_compilation.i: Model_autogen/mocs_compilation.cpp.i
-.PHONY : Model_autogen/mocs_compilation.i
+Worker_autogen/mocs_compilation.i: Worker_autogen/mocs_compilation.cpp.i
+.PHONY : Worker_autogen/mocs_compilation.i
 
 # target to preprocess a source file
-Model_autogen/mocs_compilation.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Model.dir/build.make CMakeFiles/Model.dir/Model_autogen/mocs_compilation.cpp.i
-.PHONY : Model_autogen/mocs_compilation.cpp.i
+Worker_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Worker.dir/build.make CMakeFiles/Worker.dir/Worker_autogen/mocs_compilation.cpp.i
+.PHONY : Worker_autogen/mocs_compilation.cpp.i
 
-Model_autogen/mocs_compilation.s: Model_autogen/mocs_compilation.cpp.s
-.PHONY : Model_autogen/mocs_compilation.s
+Worker_autogen/mocs_compilation.s: Worker_autogen/mocs_compilation.cpp.s
+.PHONY : Worker_autogen/mocs_compilation.s
 
 # target to generate assembly for a file
-Model_autogen/mocs_compilation.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Model.dir/build.make CMakeFiles/Model.dir/Model_autogen/mocs_compilation.cpp.s
-.PHONY : Model_autogen/mocs_compilation.cpp.s
+Worker_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Worker.dir/build.make CMakeFiles/Worker.dir/Worker_autogen/mocs_compilation.cpp.s
+.PHONY : Worker_autogen/mocs_compilation.cpp.s
 
-Serializer_autogen/mocs_compilation.o: Serializer_autogen/mocs_compilation.cpp.o
-.PHONY : Serializer_autogen/mocs_compilation.o
+src/concurrency/worker_thread.o: src/concurrency/worker_thread.cc.o
+.PHONY : src/concurrency/worker_thread.o
 
 # target to build an object file
-Serializer_autogen/mocs_compilation.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Serializer.dir/build.make CMakeFiles/Serializer.dir/Serializer_autogen/mocs_compilation.cpp.o
-.PHONY : Serializer_autogen/mocs_compilation.cpp.o
+src/concurrency/worker_thread.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Worker.dir/build.make CMakeFiles/Worker.dir/src/concurrency/worker_thread.cc.o
+.PHONY : src/concurrency/worker_thread.cc.o
 
-Serializer_autogen/mocs_compilation.i: Serializer_autogen/mocs_compilation.cpp.i
-.PHONY : Serializer_autogen/mocs_compilation.i
+src/concurrency/worker_thread.i: src/concurrency/worker_thread.cc.i
+.PHONY : src/concurrency/worker_thread.i
 
 # target to preprocess a source file
-Serializer_autogen/mocs_compilation.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Serializer.dir/build.make CMakeFiles/Serializer.dir/Serializer_autogen/mocs_compilation.cpp.i
-.PHONY : Serializer_autogen/mocs_compilation.cpp.i
+src/concurrency/worker_thread.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Worker.dir/build.make CMakeFiles/Worker.dir/src/concurrency/worker_thread.cc.i
+.PHONY : src/concurrency/worker_thread.cc.i
 
-Serializer_autogen/mocs_compilation.s: Serializer_autogen/mocs_compilation.cpp.s
-.PHONY : Serializer_autogen/mocs_compilation.s
+src/concurrency/worker_thread.s: src/concurrency/worker_thread.cc.s
+.PHONY : src/concurrency/worker_thread.s
 
 # target to generate assembly for a file
-Serializer_autogen/mocs_compilation.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Serializer.dir/build.make CMakeFiles/Serializer.dir/Serializer_autogen/mocs_compilation.cpp.s
-.PHONY : Serializer_autogen/mocs_compilation.cpp.s
+src/concurrency/worker_thread.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Worker.dir/build.make CMakeFiles/Worker.dir/src/concurrency/worker_thread.cc.s
+.PHONY : src/concurrency/worker_thread.cc.s
 
 src/controller/controller.o: src/controller/controller.cc.o
 .PHONY : src/controller/controller.o
@@ -517,6 +417,30 @@ src/controller/controller.s: src/controller/controller.cc.s
 src/controller/controller.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Controller.dir/build.make CMakeFiles/Controller.dir/src/controller/controller.cc.s
 .PHONY : src/controller/controller.cc.s
+
+src/main.o: src/main.cc.o
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MazeCaveGenerator.dir/build.make CMakeFiles/MazeCaveGenerator.dir/src/main.cc.o
+.PHONY : src/main.cc.o
+
+src/main.i: src/main.cc.i
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MazeCaveGenerator.dir/build.make CMakeFiles/MazeCaveGenerator.dir/src/main.cc.i
+.PHONY : src/main.cc.i
+
+src/main.s: src/main.cc.s
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MazeCaveGenerator.dir/build.make CMakeFiles/MazeCaveGenerator.dir/src/main.cc.s
+.PHONY : src/main.cc.s
 
 src/model/cave/generator.o: src/model/cave/generator.cc.o
 .PHONY : src/model/cave/generator.o
@@ -638,6 +562,78 @@ src/model/serializer.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Serializer.dir/build.make CMakeFiles/Serializer.dir/src/model/serializer.cc.s
 .PHONY : src/model/serializer.cc.s
 
+src/view/loader.o: src/view/loader.cc.o
+.PHONY : src/view/loader.o
+
+# target to build an object file
+src/view/loader.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MazeCaveGenerator.dir/build.make CMakeFiles/MazeCaveGenerator.dir/src/view/loader.cc.o
+.PHONY : src/view/loader.cc.o
+
+src/view/loader.i: src/view/loader.cc.i
+.PHONY : src/view/loader.i
+
+# target to preprocess a source file
+src/view/loader.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MazeCaveGenerator.dir/build.make CMakeFiles/MazeCaveGenerator.dir/src/view/loader.cc.i
+.PHONY : src/view/loader.cc.i
+
+src/view/loader.s: src/view/loader.cc.s
+.PHONY : src/view/loader.s
+
+# target to generate assembly for a file
+src/view/loader.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MazeCaveGenerator.dir/build.make CMakeFiles/MazeCaveGenerator.dir/src/view/loader.cc.s
+.PHONY : src/view/loader.cc.s
+
+src/view/painter.o: src/view/painter.cc.o
+.PHONY : src/view/painter.o
+
+# target to build an object file
+src/view/painter.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Painter.dir/build.make CMakeFiles/Painter.dir/src/view/painter.cc.o
+.PHONY : src/view/painter.cc.o
+
+src/view/painter.i: src/view/painter.cc.i
+.PHONY : src/view/painter.i
+
+# target to preprocess a source file
+src/view/painter.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Painter.dir/build.make CMakeFiles/Painter.dir/src/view/painter.cc.i
+.PHONY : src/view/painter.cc.i
+
+src/view/painter.s: src/view/painter.cc.s
+.PHONY : src/view/painter.s
+
+# target to generate assembly for a file
+src/view/painter.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Painter.dir/build.make CMakeFiles/Painter.dir/src/view/painter.cc.s
+.PHONY : src/view/painter.cc.s
+
+src/view/view.o: src/view/view.cc.o
+.PHONY : src/view/view.o
+
+# target to build an object file
+src/view/view.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MazeCaveGenerator.dir/build.make CMakeFiles/MazeCaveGenerator.dir/src/view/view.cc.o
+.PHONY : src/view/view.cc.o
+
+src/view/view.i: src/view/view.cc.i
+.PHONY : src/view/view.i
+
+# target to preprocess a source file
+src/view/view.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MazeCaveGenerator.dir/build.make CMakeFiles/MazeCaveGenerator.dir/src/view/view.cc.i
+.PHONY : src/view/view.cc.i
+
+src/view/view.s: src/view/view.cc.s
+.PHONY : src/view/view.s
+
+# target to generate assembly for a file
+src/view/view.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MazeCaveGenerator.dir/build.make CMakeFiles/MazeCaveGenerator.dir/src/view/view.cc.s
+.PHONY : src/view/view.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -646,45 +642,38 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... Cave_autogen"
-	@echo "... Cave_autogen_timestamp_deps"
-	@echo "... Controller_autogen"
-	@echo "... Controller_autogen_timestamp_deps"
 	@echo "... MazeCaveGenerator_autogen"
 	@echo "... MazeCaveGenerator_autogen_timestamp_deps"
-	@echo "... Maze_autogen"
-	@echo "... Maze_autogen_timestamp_deps"
-	@echo "... Model_autogen"
-	@echo "... Model_autogen_timestamp_deps"
-	@echo "... Serializer_autogen"
-	@echo "... Serializer_autogen_timestamp_deps"
+	@echo "... Painter_autogen"
+	@echo "... Painter_autogen_timestamp_deps"
+	@echo "... Worker_autogen"
+	@echo "... Worker_autogen_timestamp_deps"
 	@echo "... Cave"
 	@echo "... Controller"
 	@echo "... Maze"
 	@echo "... MazeCaveGenerator"
 	@echo "... Model"
+	@echo "... Painter"
 	@echo "... Serializer"
-	@echo "... Cave_autogen/mocs_compilation.o"
-	@echo "... Cave_autogen/mocs_compilation.i"
-	@echo "... Cave_autogen/mocs_compilation.s"
-	@echo "... Controller_autogen/mocs_compilation.o"
-	@echo "... Controller_autogen/mocs_compilation.i"
-	@echo "... Controller_autogen/mocs_compilation.s"
+	@echo "... Worker"
 	@echo "... MazeCaveGenerator_autogen/mocs_compilation.o"
 	@echo "... MazeCaveGenerator_autogen/mocs_compilation.i"
 	@echo "... MazeCaveGenerator_autogen/mocs_compilation.s"
-	@echo "... Maze_autogen/mocs_compilation.o"
-	@echo "... Maze_autogen/mocs_compilation.i"
-	@echo "... Maze_autogen/mocs_compilation.s"
-	@echo "... Model_autogen/mocs_compilation.o"
-	@echo "... Model_autogen/mocs_compilation.i"
-	@echo "... Model_autogen/mocs_compilation.s"
-	@echo "... Serializer_autogen/mocs_compilation.o"
-	@echo "... Serializer_autogen/mocs_compilation.i"
-	@echo "... Serializer_autogen/mocs_compilation.s"
+	@echo "... Painter_autogen/mocs_compilation.o"
+	@echo "... Painter_autogen/mocs_compilation.i"
+	@echo "... Painter_autogen/mocs_compilation.s"
+	@echo "... Worker_autogen/mocs_compilation.o"
+	@echo "... Worker_autogen/mocs_compilation.i"
+	@echo "... Worker_autogen/mocs_compilation.s"
+	@echo "... src/concurrency/worker_thread.o"
+	@echo "... src/concurrency/worker_thread.i"
+	@echo "... src/concurrency/worker_thread.s"
 	@echo "... src/controller/controller.o"
 	@echo "... src/controller/controller.i"
 	@echo "... src/controller/controller.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 	@echo "... src/model/cave/generator.o"
 	@echo "... src/model/cave/generator.i"
 	@echo "... src/model/cave/generator.s"
@@ -700,6 +689,15 @@ help:
 	@echo "... src/model/serializer.o"
 	@echo "... src/model/serializer.i"
 	@echo "... src/model/serializer.s"
+	@echo "... src/view/loader.o"
+	@echo "... src/view/loader.i"
+	@echo "... src/view/loader.s"
+	@echo "... src/view/painter.o"
+	@echo "... src/view/painter.i"
+	@echo "... src/view/painter.s"
+	@echo "... src/view/view.o"
+	@echo "... src/view/view.i"
+	@echo "... src/view/view.s"
 .PHONY : help
 
 

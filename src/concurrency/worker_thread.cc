@@ -1,4 +1,4 @@
-#include "worker_thread.h"
+#include "concurrency/worker_thread.h"
 
 namespace mcg {
 

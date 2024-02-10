@@ -69,31 +69,10 @@ include CMakeFiles/Serializer.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Serializer.dir/flags.make
 
-Serializer_autogen/timestamp: /usr/lib/qt5/bin/moc
-Serializer_autogen/timestamp: /usr/lib/qt5/bin/uic
-Serializer_autogen/timestamp: CMakeFiles/Serializer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target Serializer"
-	/usr/bin/cmake -E cmake_autogen /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles/Serializer_autogen.dir/AutogenInfo.json Release
-	/usr/bin/cmake -E touch /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/Serializer_autogen/timestamp
-
-CMakeFiles/Serializer.dir/Serializer_autogen/mocs_compilation.cpp.o: CMakeFiles/Serializer.dir/flags.make
-CMakeFiles/Serializer.dir/Serializer_autogen/mocs_compilation.cpp.o: Serializer_autogen/mocs_compilation.cpp
-CMakeFiles/Serializer.dir/Serializer_autogen/mocs_compilation.cpp.o: CMakeFiles/Serializer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Serializer.dir/Serializer_autogen/mocs_compilation.cpp.o"
-	/usr/bin/g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Serializer.dir/Serializer_autogen/mocs_compilation.cpp.o -MF CMakeFiles/Serializer.dir/Serializer_autogen/mocs_compilation.cpp.o.d -o CMakeFiles/Serializer.dir/Serializer_autogen/mocs_compilation.cpp.o -c /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/Serializer_autogen/mocs_compilation.cpp
-
-CMakeFiles/Serializer.dir/Serializer_autogen/mocs_compilation.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Serializer.dir/Serializer_autogen/mocs_compilation.cpp.i"
-	/usr/bin/g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/Serializer_autogen/mocs_compilation.cpp > CMakeFiles/Serializer.dir/Serializer_autogen/mocs_compilation.cpp.i
-
-CMakeFiles/Serializer.dir/Serializer_autogen/mocs_compilation.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Serializer.dir/Serializer_autogen/mocs_compilation.cpp.s"
-	/usr/bin/g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/Serializer_autogen/mocs_compilation.cpp -o CMakeFiles/Serializer.dir/Serializer_autogen/mocs_compilation.cpp.s
-
 CMakeFiles/Serializer.dir/src/model/serializer.cc.o: CMakeFiles/Serializer.dir/flags.make
 CMakeFiles/Serializer.dir/src/model/serializer.cc.o: /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/src/model/serializer.cc
 CMakeFiles/Serializer.dir/src/model/serializer.cc.o: CMakeFiles/Serializer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Serializer.dir/src/model/serializer.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Serializer.dir/src/model/serializer.cc.o"
 	/usr/bin/g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Serializer.dir/src/model/serializer.cc.o -MF CMakeFiles/Serializer.dir/src/model/serializer.cc.o.d -o CMakeFiles/Serializer.dir/src/model/serializer.cc.o -c /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/src/model/serializer.cc
 
 CMakeFiles/Serializer.dir/src/model/serializer.cc.i: cmake_force
@@ -106,17 +85,15 @@ CMakeFiles/Serializer.dir/src/model/serializer.cc.s: cmake_force
 
 # Object files for target Serializer
 Serializer_OBJECTS = \
-"CMakeFiles/Serializer.dir/Serializer_autogen/mocs_compilation.cpp.o" \
 "CMakeFiles/Serializer.dir/src/model/serializer.cc.o"
 
 # External object files for target Serializer
 Serializer_EXTERNAL_OBJECTS =
 
-libSerializer.a: CMakeFiles/Serializer.dir/Serializer_autogen/mocs_compilation.cpp.o
 libSerializer.a: CMakeFiles/Serializer.dir/src/model/serializer.cc.o
 libSerializer.a: CMakeFiles/Serializer.dir/build.make
 libSerializer.a: CMakeFiles/Serializer.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libSerializer.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libSerializer.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/Serializer.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Serializer.dir/link.txt --verbose=$(VERBOSE)
 
@@ -128,7 +105,7 @@ CMakeFiles/Serializer.dir/clean:
 	$(CMAKE_COMMAND) -P CMakeFiles/Serializer.dir/cmake_clean.cmake
 .PHONY : CMakeFiles/Serializer.dir/clean
 
-CMakeFiles/Serializer.dir/depend: Serializer_autogen/timestamp
+CMakeFiles/Serializer.dir/depend:
 	cd /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles/Serializer.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/Serializer.dir/depend
 

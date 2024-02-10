@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>mcg::MainWindow</class>
- <widget class="QMainWindow" name="mcg::MainWindow">
+ <class>mcg::View</class>
+ <widget class="QMainWindow" name="mcg::View">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -13,12 +13,12 @@
   <property name="windowTitle">
    <string>MazeCaveGenerator</string>
   </property>
-  <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout">
+  <widget class="QWidget" name="central_widget">
+   <layout class="QHBoxLayout" name="horizontalLayout" stretch="8,1">
     <item>
-     <widget class="Loader" name="McgLoader" native="true">
+     <widget class="Loader" name="mcg_loader" native="true">
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
@@ -38,7 +38,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QTabWidget" name="tabWidget">
+     <widget class="QTabWidget" name="tab_widget">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
         <horstretch>0</horstretch>
@@ -71,13 +71,13 @@
       <property name="elideMode">
        <enum>Qt::ElideNone</enum>
       </property>
-      <widget class="QWidget" name="TabCave">
+      <widget class="QWidget" name="tab_cave">
        <attribute name="title">
         <string>Cave</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_3">
         <item row="7" column="0">
-         <spacer name="verticalSpacer_Cave">
+         <spacer name="vertical_spacer_cave">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
           </property>
@@ -90,33 +90,33 @@
          </spacer>
         </item>
         <item row="0" column="0">
-         <widget class="QPushButton" name="pushButton_OpenCave">
+         <widget class="QPushButton" name="pushbutton_open_cave">
           <property name="text">
            <string>Open</string>
           </property>
          </widget>
         </item>
         <item row="2" column="0">
-         <widget class="QPushButton" name="pushButton_GenerateCave">
+         <widget class="QPushButton" name="pushbutton_generate_cave">
           <property name="text">
            <string>Generate</string>
           </property>
          </widget>
         </item>
         <item row="1" column="0">
-         <widget class="QPushButton" name="pushButton_SaveCave">
+         <widget class="QPushButton" name="pushbutton_save_cave">
           <property name="text">
            <string>Save</string>
           </property>
          </widget>
         </item>
         <item row="3" column="0">
-         <layout class="QGridLayout" name="gridLayout_CaveSet">
+         <layout class="QGridLayout" name="grid_layout_cave">
           <item row="7" column="1">
-           <widget class="QSpinBox" name="spinBox_BornLimitMax"/>
+           <widget class="QSpinBox" name="spinbox_born_limit_max"/>
           </item>
           <item row="3" column="0">
-           <widget class="QLabel" name="label_LifeChance">
+           <widget class="QLabel" name="label_life_chance">
             <property name="text">
              <string>Life chance</string>
             </property>
@@ -126,7 +126,7 @@
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QLabel" name="label_CaveCols">
+           <widget class="QLabel" name="label_cave_cols">
             <property name="text">
              <string>Cols</string>
             </property>
@@ -136,23 +136,23 @@
            </widget>
           </item>
           <item row="5" column="0">
-           <widget class="QSpinBox" name="spinBox_LiveLimitMin"/>
+           <widget class="QSpinBox" name="spinbox_live_limit_min"/>
           </item>
           <item row="7" column="0">
-           <widget class="QSpinBox" name="spinBox_BornLimitMin"/>
+           <widget class="QSpinBox" name="spinbox_born_limit_min"/>
           </item>
           <item row="2" column="1">
-           <widget class="QSlider" name="horizontalSlider_CaveCols">
+           <widget class="QSlider" name="horizontal_slider_cave_cols">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
            </widget>
           </item>
           <item row="5" column="1">
-           <widget class="QSpinBox" name="spinBox_LiveLimitMax"/>
+           <widget class="QSpinBox" name="spinbox_live_limit_max"/>
           </item>
           <item row="6" column="0" colspan="2">
-           <widget class="QLabel" name="label_BornLimit">
+           <widget class="QLabel" name="label_born_limit">
             <property name="text">
              <string>Born limit</string>
             </property>
@@ -162,20 +162,20 @@
            </widget>
           </item>
           <item row="8" column="1">
-           <widget class="QPushButton" name="pushButton_StopAutoGen">
+           <widget class="QPushButton" name="pushbutton_stop_autogen_cave">
             <property name="text">
              <string>Stop</string>
             </property>
            </widget>
           </item>
           <item row="3" column="1">
-           <widget class="QSpinBox" name="spinBox_LifeChance"/>
+           <widget class="QSpinBox" name="spinbox_life_chance"/>
           </item>
           <item row="1" column="0">
-           <widget class="QSpinBox" name="spinBox_CaveRows"/>
+           <widget class="QSpinBox" name="spinbox_cave_rows"/>
           </item>
           <item row="0" column="0">
-           <widget class="QLabel" name="label_CaveRows">
+           <widget class="QLabel" name="label_cave_rows">
             <property name="text">
              <string>Rows</string>
             </property>
@@ -185,14 +185,14 @@
            </widget>
           </item>
           <item row="2" column="0">
-           <widget class="QSlider" name="horizontalSlider_CaveRows">
+           <widget class="QSlider" name="horizontal_slider_cave_rows">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
            </widget>
           </item>
           <item row="4" column="0" colspan="2">
-           <widget class="QLabel" name="label_LiveLimit">
+           <widget class="QLabel" name="label_live_limit">
             <property name="text">
              <string>Live limit</string>
             </property>
@@ -202,14 +202,14 @@
            </widget>
           </item>
           <item row="8" column="0">
-           <widget class="QPushButton" name="pushButton_AutoGenCave">
+           <widget class="QPushButton" name="pushbutton_autogen_cave">
             <property name="text">
              <string>Autogeneration</string>
             </property>
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QSpinBox" name="spinBox_CaveCols"/>
+           <widget class="QSpinBox" name="spinbox_cave_cols"/>
           </item>
           <item row="9" column="0">
            <widget class="QLabel" name="label_delay">
@@ -222,7 +222,7 @@
            </widget>
           </item>
           <item row="9" column="1">
-           <widget class="QSpinBox" name="spinBox_delay">
+           <widget class="QSpinBox" name="spinbox_delay">
             <property name="minimum">
              <number>1</number>
             </property>
@@ -231,14 +231,14 @@
          </layout>
         </item>
         <item row="4" column="0">
-         <widget class="QPushButton" name="pushButton_NextGenCave">
+         <widget class="QPushButton" name="pushbutton_generate_cave_next">
           <property name="text">
            <string>Next generation</string>
           </property>
          </widget>
         </item>
         <item row="5" column="0">
-         <widget class="QPushButton" name="pushButton_DrawModeCave">
+         <widget class="QPushButton" name="pushbutton_draw_mode_cave">
           <property name="text">
            <string>DrawMode</string>
           </property>
@@ -246,13 +246,13 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="TabMaze">
+      <widget class="QWidget" name="tab_maze">
        <attribute name="title">
         <string>Maze</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_2">
         <item row="4" column="0">
-         <spacer name="verticalSpacer_Maze">
+         <spacer name="vertical_spacer_maze">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
           </property>
@@ -265,36 +265,36 @@
          </spacer>
         </item>
         <item row="1" column="0">
-         <widget class="QPushButton" name="pushButton_SaveMaze">
+         <widget class="QPushButton" name="pushbutton_save_maze">
           <property name="text">
            <string>Save</string>
           </property>
          </widget>
         </item>
         <item row="0" column="0">
-         <widget class="QPushButton" name="pushButton_OpenMaze">
+         <widget class="QPushButton" name="pushbutton_open_maze">
           <property name="text">
            <string>Open</string>
           </property>
          </widget>
         </item>
         <item row="2" column="0">
-         <widget class="QPushButton" name="pushButton_GenerateMaze">
+         <widget class="QPushButton" name="pushbutton_generate_maze">
           <property name="text">
            <string>Generate</string>
           </property>
          </widget>
         </item>
         <item row="3" column="0">
-         <layout class="QGridLayout" name="gridLayout_MazeSet">
+         <layout class="QGridLayout" name="grid_layout_maze">
           <item row="1" column="0">
-           <widget class="QSpinBox" name="spinBox_MazeRows"/>
+           <widget class="QSpinBox" name="spinbox_maze_rows"/>
           </item>
           <item row="1" column="1">
-           <widget class="QSpinBox" name="spinBox_MazeCols"/>
+           <widget class="QSpinBox" name="spinbox_maze_cols"/>
           </item>
           <item row="0" column="0">
-           <widget class="QLabel" name="Rows">
+           <widget class="QLabel" name="label_maze_rows">
             <property name="text">
              <string>Rows</string>
             </property>
@@ -304,7 +304,7 @@
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QLabel" name="Cols">
+           <widget class="QLabel" name="label_maze_cols">
             <property name="text">
              <string>Cols</string>
             </property>
@@ -314,14 +314,14 @@
            </widget>
           </item>
           <item row="2" column="0">
-           <widget class="QSlider" name="horizontalSlider_MazeRows">
+           <widget class="QSlider" name="horizontal_slider_maze_rows">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="QSlider" name="horizontalSlider_MazeCols">
+           <widget class="QSlider" name="horizontal_slider_maze_cols">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>

@@ -1,5 +1,5 @@
-#ifndef MAZECAVEGENERATOR_MCG_BASE_CONSTANTS_H_
-#define MAZECAVEGENERATOR_MCG_BASE_CONSTANTS_H_
+#ifndef MAZECAVEGENERATOR_SRC_BASE_CONSTANTS_H_
+#define MAZECAVEGENERATOR_SRC_BASE_CONSTANTS_H_
 
 namespace mcg::constants {
 
@@ -15,4 +15,4 @@ inline constexpr int kLimitsMax = 7;
 
 } // namespace mcg::constants
 
-#endif  // MAZECAVEGENERATOR_MCG_BASE_CONSTANTS_H_
+#endif  // MAZECAVEGENERATOR_SRC_BASE_CONSTANTS_H_

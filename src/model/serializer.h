@@ -1,5 +1,5 @@
-#ifndef MAZECAVEGENERATOR_SRC_MODEL_MODEL_H_
-#define MAZECAVEGENERATOR_SRC_MODEL_MODEL_H_
+#ifndef MAZECAVEGENERATOR_SRC_MODEL_SERIALIZER_H_
+#define MAZECAVEGENERATOR_SRC_MODEL_SERIALIZER_H_
 
 #include "base/types.h"
 
@@ -24,4 +24,4 @@ std::pair<bool, WallsMap> Unmarshal(const std::string& path);
 
 } // namespace mcg
 
-#endif // MAZECAVEGENERATOR_SRC_MODEL_MODEL_H_
+#endif // MAZECAVEGENERATOR_SRC_MODEL_SERIALIZER_H_

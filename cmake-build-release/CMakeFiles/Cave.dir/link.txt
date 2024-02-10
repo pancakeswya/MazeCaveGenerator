@@ -1,2 +1,2 @@
-/usr/bin/ar qc libCave.a CMakeFiles/Cave.dir/Cave_autogen/mocs_compilation.cpp.o CMakeFiles/Cave.dir/src/model/cave/generator.cc.o
+/usr/bin/ar qc libCave.a CMakeFiles/Cave.dir/src/model/cave/generator.cc.o
 /usr/bin/ranlib libCave.a

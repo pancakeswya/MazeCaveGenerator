@@ -3,14 +3,17 @@
 
 #include "base/types.h"
 
+#include <utility>
+#include <string>
+
 namespace mcg {
 
 class Model {
  public:
   bool LoadMaze(const std::string& path);
-  bool SaveMaze(const std::string& path);
-
   bool LoadCave(const std::string& path);
+
+  bool SaveMaze(const std::string& path);
   bool SaveCave(const std::string& path);
 
   void GenerateMaze(size_t rows, size_t cols);

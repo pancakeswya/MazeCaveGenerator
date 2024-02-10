@@ -1,2 +1,2 @@
-/usr/bin/ar qc libModel.a CMakeFiles/Model.dir/Model_autogen/mocs_compilation.cpp.o CMakeFiles/Model.dir/src/model/model.cc.o
+/usr/bin/ar qc libModel.a CMakeFiles/Model.dir/src/model/model.cc.o
 /usr/bin/ranlib libModel.a

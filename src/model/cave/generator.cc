@@ -1,5 +1,5 @@
 #include "model/cave/generator.h"
-#include "model/util.h"
+#include "base/util.h"
 
 namespace mcg::cave {
 
@@ -50,11 +50,11 @@ WallsMap GenerateWalls(const WallsMap& walls_map, const Params& params) {
 } // namespace
 
 WallsMap Generate(const Params& params) {
+  WallsMap walls_map(params.rows, params.cols);
   if (params.rows == 0 || params.cols == 0 ||
       params.life_chance == 0) {
-    return {};
+    return walls_map;
   }
-  WallsMap walls_map(params.rows, params.cols);
   SetFirstGeneration(walls_map, params.life_chance);
   return GenerateWalls(walls_map, params);
 }

@@ -233,6 +233,9 @@ MazeCaveGenerator_SOURCE_DIR:STATIC=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator
 //Dependencies for the target
 Model_LIB_DEPENDS:STATIC=general;Maze;general;Cave;general;Serializer;
 
+//Dependencies for the target
+Painter_LIB_DEPENDS:STATIC=general;Qt5::Widgets;
+
 //Path to a program.
 ProcessorCount_cmd_nproc:FILEPATH=/usr/bin/nproc
 
@@ -253,6 +256,9 @@ Qt5Widgets_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets
 
 //The directory containing a CMake configuration file for Qt5.
 Qt5_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5
+
+//Dependencies for the target
+Worker_LIB_DEPENDS:STATIC=general;Qt5::Widgets;
 
 
 ########################

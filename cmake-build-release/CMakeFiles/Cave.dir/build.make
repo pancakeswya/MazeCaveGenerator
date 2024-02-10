@@ -69,31 +69,10 @@ include CMakeFiles/Cave.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Cave.dir/flags.make
 
-Cave_autogen/timestamp: /usr/lib/qt5/bin/moc
-Cave_autogen/timestamp: /usr/lib/qt5/bin/uic
-Cave_autogen/timestamp: CMakeFiles/Cave.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target Cave"
-	/usr/bin/cmake -E cmake_autogen /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles/Cave_autogen.dir/AutogenInfo.json Release
-	/usr/bin/cmake -E touch /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/Cave_autogen/timestamp
-
-CMakeFiles/Cave.dir/Cave_autogen/mocs_compilation.cpp.o: CMakeFiles/Cave.dir/flags.make
-CMakeFiles/Cave.dir/Cave_autogen/mocs_compilation.cpp.o: Cave_autogen/mocs_compilation.cpp
-CMakeFiles/Cave.dir/Cave_autogen/mocs_compilation.cpp.o: CMakeFiles/Cave.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Cave.dir/Cave_autogen/mocs_compilation.cpp.o"
-	/usr/bin/g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Cave.dir/Cave_autogen/mocs_compilation.cpp.o -MF CMakeFiles/Cave.dir/Cave_autogen/mocs_compilation.cpp.o.d -o CMakeFiles/Cave.dir/Cave_autogen/mocs_compilation.cpp.o -c /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/Cave_autogen/mocs_compilation.cpp
-
-CMakeFiles/Cave.dir/Cave_autogen/mocs_compilation.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Cave.dir/Cave_autogen/mocs_compilation.cpp.i"
-	/usr/bin/g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/Cave_autogen/mocs_compilation.cpp > CMakeFiles/Cave.dir/Cave_autogen/mocs_compilation.cpp.i
-
-CMakeFiles/Cave.dir/Cave_autogen/mocs_compilation.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Cave.dir/Cave_autogen/mocs_compilation.cpp.s"
-	/usr/bin/g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/Cave_autogen/mocs_compilation.cpp -o CMakeFiles/Cave.dir/Cave_autogen/mocs_compilation.cpp.s
-
 CMakeFiles/Cave.dir/src/model/cave/generator.cc.o: CMakeFiles/Cave.dir/flags.make
 CMakeFiles/Cave.dir/src/model/cave/generator.cc.o: /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/src/model/cave/generator.cc
 CMakeFiles/Cave.dir/src/model/cave/generator.cc.o: CMakeFiles/Cave.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Cave.dir/src/model/cave/generator.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Cave.dir/src/model/cave/generator.cc.o"
 	/usr/bin/g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Cave.dir/src/model/cave/generator.cc.o -MF CMakeFiles/Cave.dir/src/model/cave/generator.cc.o.d -o CMakeFiles/Cave.dir/src/model/cave/generator.cc.o -c /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/src/model/cave/generator.cc
 
 CMakeFiles/Cave.dir/src/model/cave/generator.cc.i: cmake_force
@@ -106,17 +85,15 @@ CMakeFiles/Cave.dir/src/model/cave/generator.cc.s: cmake_force
 
 # Object files for target Cave
 Cave_OBJECTS = \
-"CMakeFiles/Cave.dir/Cave_autogen/mocs_compilation.cpp.o" \
 "CMakeFiles/Cave.dir/src/model/cave/generator.cc.o"
 
 # External object files for target Cave
 Cave_EXTERNAL_OBJECTS =
 
-libCave.a: CMakeFiles/Cave.dir/Cave_autogen/mocs_compilation.cpp.o
 libCave.a: CMakeFiles/Cave.dir/src/model/cave/generator.cc.o
 libCave.a: CMakeFiles/Cave.dir/build.make
 libCave.a: CMakeFiles/Cave.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libCave.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libCave.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/Cave.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Cave.dir/link.txt --verbose=$(VERBOSE)
 
@@ -128,7 +105,7 @@ CMakeFiles/Cave.dir/clean:
 	$(CMAKE_COMMAND) -P CMakeFiles/Cave.dir/cmake_clean.cmake
 .PHONY : CMakeFiles/Cave.dir/clean
 
-CMakeFiles/Cave.dir/depend: Cave_autogen/timestamp
+CMakeFiles/Cave.dir/depend:
 	cd /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles/Cave.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/Cave.dir/depend
 

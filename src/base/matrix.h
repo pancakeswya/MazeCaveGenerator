@@ -101,6 +101,10 @@ class Matrix {
     cols_ = rows_ = 0;
   }
 
+  bool Empty() const noexcept {
+    return data_.empty();
+  }
+
   reference At(size_type row, size_type col) {
     if (row >= rows_ || col >= cols_) {
       throw std::out_of_range("operator[]. Row or col is out of range");

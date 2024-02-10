@@ -69,31 +69,10 @@ include CMakeFiles/Model.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Model.dir/flags.make
 
-Model_autogen/timestamp: /usr/lib/qt5/bin/moc
-Model_autogen/timestamp: /usr/lib/qt5/bin/uic
-Model_autogen/timestamp: CMakeFiles/Model.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target Model"
-	/usr/bin/cmake -E cmake_autogen /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles/Model_autogen.dir/AutogenInfo.json Release
-	/usr/bin/cmake -E touch /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/Model_autogen/timestamp
-
-CMakeFiles/Model.dir/Model_autogen/mocs_compilation.cpp.o: CMakeFiles/Model.dir/flags.make
-CMakeFiles/Model.dir/Model_autogen/mocs_compilation.cpp.o: Model_autogen/mocs_compilation.cpp
-CMakeFiles/Model.dir/Model_autogen/mocs_compilation.cpp.o: CMakeFiles/Model.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Model.dir/Model_autogen/mocs_compilation.cpp.o"
-	/usr/bin/g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Model.dir/Model_autogen/mocs_compilation.cpp.o -MF CMakeFiles/Model.dir/Model_autogen/mocs_compilation.cpp.o.d -o CMakeFiles/Model.dir/Model_autogen/mocs_compilation.cpp.o -c /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/Model_autogen/mocs_compilation.cpp
-
-CMakeFiles/Model.dir/Model_autogen/mocs_compilation.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Model.dir/Model_autogen/mocs_compilation.cpp.i"
-	/usr/bin/g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/Model_autogen/mocs_compilation.cpp > CMakeFiles/Model.dir/Model_autogen/mocs_compilation.cpp.i
-
-CMakeFiles/Model.dir/Model_autogen/mocs_compilation.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Model.dir/Model_autogen/mocs_compilation.cpp.s"
-	/usr/bin/g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/Model_autogen/mocs_compilation.cpp -o CMakeFiles/Model.dir/Model_autogen/mocs_compilation.cpp.s
-
 CMakeFiles/Model.dir/src/model/model.cc.o: CMakeFiles/Model.dir/flags.make
 CMakeFiles/Model.dir/src/model/model.cc.o: /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/src/model/model.cc
 CMakeFiles/Model.dir/src/model/model.cc.o: CMakeFiles/Model.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Model.dir/src/model/model.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Model.dir/src/model/model.cc.o"
 	/usr/bin/g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Model.dir/src/model/model.cc.o -MF CMakeFiles/Model.dir/src/model/model.cc.o.d -o CMakeFiles/Model.dir/src/model/model.cc.o -c /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/src/model/model.cc
 
 CMakeFiles/Model.dir/src/model/model.cc.i: cmake_force
@@ -106,17 +85,15 @@ CMakeFiles/Model.dir/src/model/model.cc.s: cmake_force
 
 # Object files for target Model
 Model_OBJECTS = \
-"CMakeFiles/Model.dir/Model_autogen/mocs_compilation.cpp.o" \
 "CMakeFiles/Model.dir/src/model/model.cc.o"
 
 # External object files for target Model
 Model_EXTERNAL_OBJECTS =
 
-libModel.a: CMakeFiles/Model.dir/Model_autogen/mocs_compilation.cpp.o
 libModel.a: CMakeFiles/Model.dir/src/model/model.cc.o
 libModel.a: CMakeFiles/Model.dir/build.make
 libModel.a: CMakeFiles/Model.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libModel.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libModel.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/Model.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Model.dir/link.txt --verbose=$(VERBOSE)
 
@@ -128,7 +105,7 @@ CMakeFiles/Model.dir/clean:
 	$(CMAKE_COMMAND) -P CMakeFiles/Model.dir/cmake_clean.cmake
 .PHONY : CMakeFiles/Model.dir/clean
 
-CMakeFiles/Model.dir/depend: Model_autogen/timestamp
+CMakeFiles/Model.dir/depend:
 	cd /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles/Model.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/Model.dir/depend
 

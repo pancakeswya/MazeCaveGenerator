@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/g++-13
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release -I/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator -I/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/Model_autogen/include -I/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/src
+CXX_INCLUDES = -I/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release -I/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator -I/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/src
 
 CXX_FLAGS = -O3 -DNDEBUG -std=gnu++17 -fdiagnostics-color=always
 

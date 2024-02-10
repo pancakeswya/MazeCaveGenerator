@@ -7,22 +7,27 @@
 namespace mcg {
 
 bool Model::LoadMaze(const std::string& path) {
-  maze_map_ = maze::
+  auto[ok, maze_map] = maze::Unmarshal(path);
+  maze_map_ = std::move(maze_map);
+  return ok;
 }
 
 bool Model::SaveMaze(const std::string& path) {
-
+  return maze::Marshal(maze_map_, path);
 }
 
 bool Model::LoadCave(const std::string& path) {
-
+  auto[ok, cave_map] = cave::Unmarshal(path);
+  cave_map_ = std::move(cave_map);
+  return ok;
 }
 
 bool Model::SaveCave(const std::string& path) {
-
+  return cave::Marshal(cave_map_, path);
 }
 
 void Model::GenerateMaze(size_t rows, size_t cols) {
+  maze_solution_ = {};
   maze_map_ = maze::Generate(rows, cols);
 }
 

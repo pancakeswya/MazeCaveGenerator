@@ -8,8 +8,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "" "Serializer_autogen/timestamp" "custom" "Serializer_autogen/deps"
-  "/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/Serializer_autogen/mocs_compilation.cpp" "CMakeFiles/Serializer.dir/Serializer_autogen/mocs_compilation.cpp.o" "gcc" "CMakeFiles/Serializer.dir/Serializer_autogen/mocs_compilation.cpp.o.d"
   "/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/src/model/serializer.cc" "CMakeFiles/Serializer.dir/src/model/serializer.cc.o" "gcc" "CMakeFiles/Serializer.dir/src/model/serializer.cc.o.d"
   )
 

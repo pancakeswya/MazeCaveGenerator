@@ -74,7 +74,21 @@
 	"CMAKE_SOURCE_DIR" : "/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator",
 	"DEP_FILE" : "/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/MazeCaveGenerator_autogen/deps",
 	"DEP_FILE_RULE_NAME" : "MazeCaveGenerator_autogen/timestamp",
-	"HEADERS" : [],
+	"HEADERS" : 
+	[
+		[
+			"/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/src/view/loader.h",
+			"MU",
+			"3JYSCEOBDA/moc_loader.cpp",
+			null
+		],
+		[
+			"/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/src/view/view.h",
+			"MU",
+			"3JYSCEOBDA/moc_view.cpp",
+			null
+		]
+	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
 	"INCLUDE_DIR" : "/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/MazeCaveGenerator_autogen/include",
 	"MOC_COMPILATION_FILE" : "/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/MazeCaveGenerator_autogen/mocs_compilation.cpp",
@@ -118,7 +132,11 @@
 	],
 	"MOC_PREDEFS_FILE" : "/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/MazeCaveGenerator_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
-	"MOC_SKIP" : [],
+	"MOC_SKIP" : 
+	[
+		"/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/Painter_autogen/include/src/view/ui_view.h",
+		"/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/Worker_autogen/include/src/view/ui_view.h"
+	],
 	"MULTI_CONFIG" : false,
 	"PARALLEL" : 2,
 	"PARSE_CACHE_FILE" : "/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles/MazeCaveGenerator_autogen.dir/ParseCache.txt",
@@ -127,10 +145,31 @@
 	"QT_VERSION_MAJOR" : 5,
 	"QT_VERSION_MINOR" : 15,
 	"SETTINGS_FILE" : "/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles/MazeCaveGenerator_autogen.dir/AutogenUsed.txt",
-	"SOURCES" : [],
+	"SOURCES" : 
+	[
+		[
+			"/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/src/main.cc",
+			"MU",
+			null
+		],
+		[
+			"/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/src/view/loader.cc",
+			"MU",
+			null
+		],
+		[
+			"/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/src/view/view.cc",
+			"MU",
+			null
+		]
+	],
 	"UIC_OPTIONS" : [],
-	"UIC_SEARCH_PATHS" : [ "/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/mcg/view/ui" ],
-	"UIC_SKIP" : [],
+	"UIC_SEARCH_PATHS" : [],
+	"UIC_SKIP" : 
+	[
+		"/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/Painter_autogen/include/src/view/ui_view.h",
+		"/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/Worker_autogen/include/src/view/ui_view.h"
+	],
 	"UIC_UI_FILES" : [],
 	"VERBOSITY" : 0
 }

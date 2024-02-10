@@ -1,41 +1,55 @@
-#ifndef MAZECAVEGENERATOR_MCG_VIEW_LOADER_H
-#define MAZECAVEGENERATOR_MCG_VIEW_LOADER_H
+#ifndef MAZECAVEGENERATOR_SRC_VIEW_LOADER_H
+#define MAZECAVEGENERATOR_SRC_VIEW_LOADER_H
 
 #include <QWidget>
 #include <memory>
 #include <utility>
 
-#include "painter/painter.h"
-#include "manager/manager.h"
+#include "controller/controller.h"
 
 namespace mcg {
+
+enum GenerateType : short int {
+  kCave = false,
+  kMaze,
+  kTypesSize
+};
 
 class Loader : public QWidget {
   Q_OBJECT
 
  public:
-  Loader(QWidget *parent = nullptr);
-  ~Loader() = default;
-  bool OpenFile(const QString &);
-  bool SaveFile(const QString &);
-  void GenerateMaze(size_t, size_t);
-  void GenerateCave(size_t, size_t, size_t = 0, const Range & = {0, 0},
-                    const Range & = {0, 0});
+  explicit Loader(QWidget *parent = nullptr) noexcept;
+  ~Loader() override = default;
+
+  void SetController(Controller* controller) noexcept;
+
+  bool OpenFile(const QString& path);
+  bool SaveFile(const QString& path);
+
+  void GenerateMaze(size_t rows, size_t cols);
+  void GenerateCave(const cave::Params& params);
+
   void paintEvent(QPaintEvent *) override;
  public slots:
-  void NextGenCave();
-  void ChangeType(int);
+  void GenerateCaveNext(const cave::Params& params);
+  void SetType(int);
 
  protected:
-  void mousePressEvent(QMouseEvent *) override;
+  void mousePressEvent(QMouseEvent*) override;
+ private:
+  void DrawEventMaze(int x, int y);
+  void DrawEventCave(int x, int y);
 
-private:
- Cave cave_;
- Maze maze_;
- std::unique_ptr<IPainter> painter_;
- std::unique_ptr<IManager> manager_;
+  bool type_;
+
+  maze::WallsMap maze_map_;
+  maze::SolutionMap maze_solution_map_;
+  cave::WallsMap cave_map_;
+
+  Controller* controller_;
 };
 
 }  // namespace mcg
 
-#endif  // MAZECAVEGENERATOR_MCG_VIEW_LOADER_H
+#endif  // MAZECAVEGENERATOR_SRC_VIEW_LOADER_H

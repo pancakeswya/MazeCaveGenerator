@@ -69,31 +69,10 @@ include CMakeFiles/Controller.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Controller.dir/flags.make
 
-Controller_autogen/timestamp: /usr/lib/qt5/bin/moc
-Controller_autogen/timestamp: /usr/lib/qt5/bin/uic
-Controller_autogen/timestamp: CMakeFiles/Controller.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target Controller"
-	/usr/bin/cmake -E cmake_autogen /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles/Controller_autogen.dir/AutogenInfo.json Release
-	/usr/bin/cmake -E touch /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/Controller_autogen/timestamp
-
-CMakeFiles/Controller.dir/Controller_autogen/mocs_compilation.cpp.o: CMakeFiles/Controller.dir/flags.make
-CMakeFiles/Controller.dir/Controller_autogen/mocs_compilation.cpp.o: Controller_autogen/mocs_compilation.cpp
-CMakeFiles/Controller.dir/Controller_autogen/mocs_compilation.cpp.o: CMakeFiles/Controller.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Controller.dir/Controller_autogen/mocs_compilation.cpp.o"
-	/usr/bin/g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Controller.dir/Controller_autogen/mocs_compilation.cpp.o -MF CMakeFiles/Controller.dir/Controller_autogen/mocs_compilation.cpp.o.d -o CMakeFiles/Controller.dir/Controller_autogen/mocs_compilation.cpp.o -c /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/Controller_autogen/mocs_compilation.cpp
-
-CMakeFiles/Controller.dir/Controller_autogen/mocs_compilation.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Controller.dir/Controller_autogen/mocs_compilation.cpp.i"
-	/usr/bin/g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/Controller_autogen/mocs_compilation.cpp > CMakeFiles/Controller.dir/Controller_autogen/mocs_compilation.cpp.i
-
-CMakeFiles/Controller.dir/Controller_autogen/mocs_compilation.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Controller.dir/Controller_autogen/mocs_compilation.cpp.s"
-	/usr/bin/g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/Controller_autogen/mocs_compilation.cpp -o CMakeFiles/Controller.dir/Controller_autogen/mocs_compilation.cpp.s
-
 CMakeFiles/Controller.dir/src/controller/controller.cc.o: CMakeFiles/Controller.dir/flags.make
 CMakeFiles/Controller.dir/src/controller/controller.cc.o: /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/src/controller/controller.cc
 CMakeFiles/Controller.dir/src/controller/controller.cc.o: CMakeFiles/Controller.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Controller.dir/src/controller/controller.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Controller.dir/src/controller/controller.cc.o"
 	/usr/bin/g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Controller.dir/src/controller/controller.cc.o -MF CMakeFiles/Controller.dir/src/controller/controller.cc.o.d -o CMakeFiles/Controller.dir/src/controller/controller.cc.o -c /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/src/controller/controller.cc
 
 CMakeFiles/Controller.dir/src/controller/controller.cc.i: cmake_force
@@ -106,17 +85,15 @@ CMakeFiles/Controller.dir/src/controller/controller.cc.s: cmake_force
 
 # Object files for target Controller
 Controller_OBJECTS = \
-"CMakeFiles/Controller.dir/Controller_autogen/mocs_compilation.cpp.o" \
 "CMakeFiles/Controller.dir/src/controller/controller.cc.o"
 
 # External object files for target Controller
 Controller_EXTERNAL_OBJECTS =
 
-libController.a: CMakeFiles/Controller.dir/Controller_autogen/mocs_compilation.cpp.o
 libController.a: CMakeFiles/Controller.dir/src/controller/controller.cc.o
 libController.a: CMakeFiles/Controller.dir/build.make
 libController.a: CMakeFiles/Controller.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libController.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libController.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/Controller.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Controller.dir/link.txt --verbose=$(VERBOSE)
 
@@ -128,7 +105,7 @@ CMakeFiles/Controller.dir/clean:
 	$(CMAKE_COMMAND) -P CMakeFiles/Controller.dir/cmake_clean.cmake
 .PHONY : CMakeFiles/Controller.dir/clean
 
-CMakeFiles/Controller.dir/depend: Controller_autogen/timestamp
+CMakeFiles/Controller.dir/depend:
 	cd /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles/Controller.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/Controller.dir/depend
 

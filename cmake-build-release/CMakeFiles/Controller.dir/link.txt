@@ -1,2 +1,2 @@
-/usr/bin/ar qc libController.a CMakeFiles/Controller.dir/Controller_autogen/mocs_compilation.cpp.o CMakeFiles/Controller.dir/src/controller/controller.cc.o
+/usr/bin/ar qc libController.a CMakeFiles/Controller.dir/src/controller/controller.cc.o
 /usr/bin/ranlib libController.a

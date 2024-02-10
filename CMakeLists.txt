@@ -4,10 +4,6 @@ project(MazeCaveGenerator VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-set(CMAKE_AUTOUIC ON)
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -40,24 +36,32 @@ add_library(Controller STATIC
 
 target_link_libraries(Controller Model)
 
-#set(PROJECT_SOURCES
-#        mcg/manager/manager.h
-#        mcg/manager/manager.cc
-#        mcg/painter/painter.h
-#        mcg/painter/painter.cc
-#        mcg/thread/worker_thread.h
-#        mcg/thread/worker_thread.cc
-#        mcg/view/loader.h
-#        mcg/view/loader.cc
-#        mcg/view/mainwindow.h
-#        mcg/view/mainwindow.cc
-#        mcg/view/ui/mainwindow.ui
-#        mcg/main.cc
-#)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
 
-include_directories("src/")
+add_library(Painter STATIC
+            src/view/painter.cc
+            src/view/painter.h)
 
-set(CMAKE_AUTOUIC_SEARCH_PATHS mcg/view/ui)
+target_link_libraries(Painter Qt${QT_VERSION_MAJOR}::Widgets)
+
+add_library(Worker STATIC
+            src/concurrency/worker_thread.cc
+            src/concurrency/worker_thread.h)
+
+target_link_libraries(Worker Qt${QT_VERSION_MAJOR}::Widgets)
+
+set(PROJECT_SOURCES
+            src/view/loader.cc
+            src/view/loader.h
+            src/view/view.cc
+            src/view/view.h
+            src/view/view.ui
+            src/main.cc
+)
+
+include_directories("src")
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(MazeCaveGenerator
@@ -70,7 +74,7 @@ else()
     )
 endif()
 
-target_link_libraries(MazeCaveGenerator PRIVATE Maze Cave Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(MazeCaveGenerator PRIVATE Painter Worker Controller Qt${QT_VERSION_MAJOR}::Widgets)
 
 set_target_properties(MazeCaveGenerator PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com

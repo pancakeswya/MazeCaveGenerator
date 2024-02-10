@@ -8,6 +8,7 @@ CMake Deprecation Warning:
   use the cmake-file-api(7) to view CMake-generated project build trees.
 
 
--- Configuring done (0.5s)
--- Generating done (3.2s)
+-- Configuring done (1.3s)
+-- Generating done (5.2s)
 -- Build files have been written to: /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release
+CMake File API: C:\Users\niyaz\Desktop\MazeCaveGenerator\cmake-build-release: target-Cave-Release-eb225f4d7f934e53a6f7.json: Cannot resolve compiler path '/usr/bin/g++-13'

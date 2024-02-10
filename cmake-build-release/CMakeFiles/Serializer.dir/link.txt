@@ -1,2 +1,2 @@
-/usr/bin/ar qc libSerializer.a CMakeFiles/Serializer.dir/Serializer_autogen/mocs_compilation.cpp.o CMakeFiles/Serializer.dir/src/model/serializer.cc.o
+/usr/bin/ar qc libSerializer.a CMakeFiles/Serializer.dir/src/model/serializer.cc.o
 /usr/bin/ranlib libSerializer.a

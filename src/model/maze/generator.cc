@@ -1,5 +1,5 @@
 #include "model/maze/generator.h"
-#include "model/util.h"
+#include "base/util.h"
 
 #include <vector>
 #include <numeric>

@@ -3,12 +3,22 @@
 
 #include "base/types.h"
 
+#include <utility>
+#include <string>
+
 namespace mcg {
 
 class Model;
 
 class Controller {
-  Controller(Model* model);
+ public:
+  explicit Controller(Model* model) noexcept;
+
+  std::pair<bool, const maze::WallsMap&> LoadMaze(const std::string& path);
+  std::pair<bool, const cave::WallsMap&> LoadCave(const std::string& path);
+
+  bool SaveMaze(const std::string& path);
+  bool SaveCave(const std::string& path);
 
   const maze::WallsMap& GenerateMaze(size_t rows, size_t cols);
   const cave::WallsMap& GenerateCave(const cave::Params& params);

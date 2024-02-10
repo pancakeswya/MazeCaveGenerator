@@ -69,31 +69,10 @@ include CMakeFiles/Maze.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Maze.dir/flags.make
 
-Maze_autogen/timestamp: /usr/lib/qt5/bin/moc
-Maze_autogen/timestamp: /usr/lib/qt5/bin/uic
-Maze_autogen/timestamp: CMakeFiles/Maze.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target Maze"
-	/usr/bin/cmake -E cmake_autogen /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles/Maze_autogen.dir/AutogenInfo.json Release
-	/usr/bin/cmake -E touch /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/Maze_autogen/timestamp
-
-CMakeFiles/Maze.dir/Maze_autogen/mocs_compilation.cpp.o: CMakeFiles/Maze.dir/flags.make
-CMakeFiles/Maze.dir/Maze_autogen/mocs_compilation.cpp.o: Maze_autogen/mocs_compilation.cpp
-CMakeFiles/Maze.dir/Maze_autogen/mocs_compilation.cpp.o: CMakeFiles/Maze.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Maze.dir/Maze_autogen/mocs_compilation.cpp.o"
-	/usr/bin/g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Maze.dir/Maze_autogen/mocs_compilation.cpp.o -MF CMakeFiles/Maze.dir/Maze_autogen/mocs_compilation.cpp.o.d -o CMakeFiles/Maze.dir/Maze_autogen/mocs_compilation.cpp.o -c /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/Maze_autogen/mocs_compilation.cpp
-
-CMakeFiles/Maze.dir/Maze_autogen/mocs_compilation.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Maze.dir/Maze_autogen/mocs_compilation.cpp.i"
-	/usr/bin/g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/Maze_autogen/mocs_compilation.cpp > CMakeFiles/Maze.dir/Maze_autogen/mocs_compilation.cpp.i
-
-CMakeFiles/Maze.dir/Maze_autogen/mocs_compilation.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Maze.dir/Maze_autogen/mocs_compilation.cpp.s"
-	/usr/bin/g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/Maze_autogen/mocs_compilation.cpp -o CMakeFiles/Maze.dir/Maze_autogen/mocs_compilation.cpp.s
-
 CMakeFiles/Maze.dir/src/model/maze/generator.cc.o: CMakeFiles/Maze.dir/flags.make
 CMakeFiles/Maze.dir/src/model/maze/generator.cc.o: /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/src/model/maze/generator.cc
 CMakeFiles/Maze.dir/src/model/maze/generator.cc.o: CMakeFiles/Maze.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Maze.dir/src/model/maze/generator.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Maze.dir/src/model/maze/generator.cc.o"
 	/usr/bin/g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Maze.dir/src/model/maze/generator.cc.o -MF CMakeFiles/Maze.dir/src/model/maze/generator.cc.o.d -o CMakeFiles/Maze.dir/src/model/maze/generator.cc.o -c /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/src/model/maze/generator.cc
 
 CMakeFiles/Maze.dir/src/model/maze/generator.cc.i: cmake_force
@@ -107,7 +86,7 @@ CMakeFiles/Maze.dir/src/model/maze/generator.cc.s: cmake_force
 CMakeFiles/Maze.dir/src/model/maze/solver.cc.o: CMakeFiles/Maze.dir/flags.make
 CMakeFiles/Maze.dir/src/model/maze/solver.cc.o: /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/src/model/maze/solver.cc
 CMakeFiles/Maze.dir/src/model/maze/solver.cc.o: CMakeFiles/Maze.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Maze.dir/src/model/maze/solver.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Maze.dir/src/model/maze/solver.cc.o"
 	/usr/bin/g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Maze.dir/src/model/maze/solver.cc.o -MF CMakeFiles/Maze.dir/src/model/maze/solver.cc.o.d -o CMakeFiles/Maze.dir/src/model/maze/solver.cc.o -c /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/src/model/maze/solver.cc
 
 CMakeFiles/Maze.dir/src/model/maze/solver.cc.i: cmake_force
@@ -120,19 +99,17 @@ CMakeFiles/Maze.dir/src/model/maze/solver.cc.s: cmake_force
 
 # Object files for target Maze
 Maze_OBJECTS = \
-"CMakeFiles/Maze.dir/Maze_autogen/mocs_compilation.cpp.o" \
 "CMakeFiles/Maze.dir/src/model/maze/generator.cc.o" \
 "CMakeFiles/Maze.dir/src/model/maze/solver.cc.o"
 
 # External object files for target Maze
 Maze_EXTERNAL_OBJECTS =
 
-libMaze.a: CMakeFiles/Maze.dir/Maze_autogen/mocs_compilation.cpp.o
 libMaze.a: CMakeFiles/Maze.dir/src/model/maze/generator.cc.o
 libMaze.a: CMakeFiles/Maze.dir/src/model/maze/solver.cc.o
 libMaze.a: CMakeFiles/Maze.dir/build.make
 libMaze.a: CMakeFiles/Maze.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libMaze.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libMaze.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/Maze.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Maze.dir/link.txt --verbose=$(VERBOSE)
 
@@ -144,7 +121,7 @@ CMakeFiles/Maze.dir/clean:
 	$(CMAKE_COMMAND) -P CMakeFiles/Maze.dir/cmake_clean.cmake
 .PHONY : CMakeFiles/Maze.dir/clean
 
-CMakeFiles/Maze.dir/depend: Maze_autogen/timestamp
+CMakeFiles/Maze.dir/depend:
 	cd /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles/Maze.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/Maze.dir/depend
 

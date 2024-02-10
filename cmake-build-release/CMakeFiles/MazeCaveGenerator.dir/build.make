@@ -90,22 +90,75 @@ CMakeFiles/MazeCaveGenerator.dir/MazeCaveGenerator_autogen/mocs_compilation.cpp.
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MazeCaveGenerator.dir/MazeCaveGenerator_autogen/mocs_compilation.cpp.s"
 	/usr/bin/g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/MazeCaveGenerator_autogen/mocs_compilation.cpp -o CMakeFiles/MazeCaveGenerator.dir/MazeCaveGenerator_autogen/mocs_compilation.cpp.s
 
+CMakeFiles/MazeCaveGenerator.dir/src/view/loader.cc.o: CMakeFiles/MazeCaveGenerator.dir/flags.make
+CMakeFiles/MazeCaveGenerator.dir/src/view/loader.cc.o: /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/src/view/loader.cc
+CMakeFiles/MazeCaveGenerator.dir/src/view/loader.cc.o: CMakeFiles/MazeCaveGenerator.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/MazeCaveGenerator.dir/src/view/loader.cc.o"
+	/usr/bin/g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MazeCaveGenerator.dir/src/view/loader.cc.o -MF CMakeFiles/MazeCaveGenerator.dir/src/view/loader.cc.o.d -o CMakeFiles/MazeCaveGenerator.dir/src/view/loader.cc.o -c /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/src/view/loader.cc
+
+CMakeFiles/MazeCaveGenerator.dir/src/view/loader.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MazeCaveGenerator.dir/src/view/loader.cc.i"
+	/usr/bin/g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/src/view/loader.cc > CMakeFiles/MazeCaveGenerator.dir/src/view/loader.cc.i
+
+CMakeFiles/MazeCaveGenerator.dir/src/view/loader.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MazeCaveGenerator.dir/src/view/loader.cc.s"
+	/usr/bin/g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/src/view/loader.cc -o CMakeFiles/MazeCaveGenerator.dir/src/view/loader.cc.s
+
+CMakeFiles/MazeCaveGenerator.dir/src/view/view.cc.o: CMakeFiles/MazeCaveGenerator.dir/flags.make
+CMakeFiles/MazeCaveGenerator.dir/src/view/view.cc.o: /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/src/view/view.cc
+CMakeFiles/MazeCaveGenerator.dir/src/view/view.cc.o: CMakeFiles/MazeCaveGenerator.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/MazeCaveGenerator.dir/src/view/view.cc.o"
+	/usr/bin/g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MazeCaveGenerator.dir/src/view/view.cc.o -MF CMakeFiles/MazeCaveGenerator.dir/src/view/view.cc.o.d -o CMakeFiles/MazeCaveGenerator.dir/src/view/view.cc.o -c /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/src/view/view.cc
+
+CMakeFiles/MazeCaveGenerator.dir/src/view/view.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MazeCaveGenerator.dir/src/view/view.cc.i"
+	/usr/bin/g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/src/view/view.cc > CMakeFiles/MazeCaveGenerator.dir/src/view/view.cc.i
+
+CMakeFiles/MazeCaveGenerator.dir/src/view/view.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MazeCaveGenerator.dir/src/view/view.cc.s"
+	/usr/bin/g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/src/view/view.cc -o CMakeFiles/MazeCaveGenerator.dir/src/view/view.cc.s
+
+CMakeFiles/MazeCaveGenerator.dir/src/main.cc.o: CMakeFiles/MazeCaveGenerator.dir/flags.make
+CMakeFiles/MazeCaveGenerator.dir/src/main.cc.o: /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/src/main.cc
+CMakeFiles/MazeCaveGenerator.dir/src/main.cc.o: CMakeFiles/MazeCaveGenerator.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/MazeCaveGenerator.dir/src/main.cc.o"
+	/usr/bin/g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MazeCaveGenerator.dir/src/main.cc.o -MF CMakeFiles/MazeCaveGenerator.dir/src/main.cc.o.d -o CMakeFiles/MazeCaveGenerator.dir/src/main.cc.o -c /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/src/main.cc
+
+CMakeFiles/MazeCaveGenerator.dir/src/main.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MazeCaveGenerator.dir/src/main.cc.i"
+	/usr/bin/g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/src/main.cc > CMakeFiles/MazeCaveGenerator.dir/src/main.cc.i
+
+CMakeFiles/MazeCaveGenerator.dir/src/main.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MazeCaveGenerator.dir/src/main.cc.s"
+	/usr/bin/g++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/src/main.cc -o CMakeFiles/MazeCaveGenerator.dir/src/main.cc.s
+
 # Object files for target MazeCaveGenerator
 MazeCaveGenerator_OBJECTS = \
-"CMakeFiles/MazeCaveGenerator.dir/MazeCaveGenerator_autogen/mocs_compilation.cpp.o"
+"CMakeFiles/MazeCaveGenerator.dir/MazeCaveGenerator_autogen/mocs_compilation.cpp.o" \
+"CMakeFiles/MazeCaveGenerator.dir/src/view/loader.cc.o" \
+"CMakeFiles/MazeCaveGenerator.dir/src/view/view.cc.o" \
+"CMakeFiles/MazeCaveGenerator.dir/src/main.cc.o"
 
 # External object files for target MazeCaveGenerator
 MazeCaveGenerator_EXTERNAL_OBJECTS =
 
 MazeCaveGenerator: CMakeFiles/MazeCaveGenerator.dir/MazeCaveGenerator_autogen/mocs_compilation.cpp.o
+MazeCaveGenerator: CMakeFiles/MazeCaveGenerator.dir/src/view/loader.cc.o
+MazeCaveGenerator: CMakeFiles/MazeCaveGenerator.dir/src/view/view.cc.o
+MazeCaveGenerator: CMakeFiles/MazeCaveGenerator.dir/src/main.cc.o
 MazeCaveGenerator: CMakeFiles/MazeCaveGenerator.dir/build.make
-MazeCaveGenerator: libMaze.a
-MazeCaveGenerator: libCave.a
+MazeCaveGenerator: libPainter.a
+MazeCaveGenerator: libWorker.a
+MazeCaveGenerator: libController.a
 MazeCaveGenerator: /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.15.3
 MazeCaveGenerator: /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.15.3
 MazeCaveGenerator: /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.15.3
+MazeCaveGenerator: libModel.a
+MazeCaveGenerator: libMaze.a
+MazeCaveGenerator: libCave.a
+MazeCaveGenerator: libSerializer.a
 MazeCaveGenerator: CMakeFiles/MazeCaveGenerator.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable MazeCaveGenerator"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable MazeCaveGenerator"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MazeCaveGenerator.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

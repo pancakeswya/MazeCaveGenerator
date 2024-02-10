@@ -8,8 +8,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "" "Controller_autogen/timestamp" "custom" "Controller_autogen/deps"
-  "/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/cmake-build-release/Controller_autogen/mocs_compilation.cpp" "CMakeFiles/Controller.dir/Controller_autogen/mocs_compilation.cpp.o" "gcc" "CMakeFiles/Controller.dir/Controller_autogen/mocs_compilation.cpp.o.d"
   "/mnt/c/Users/niyaz/Desktop/MazeCaveGenerator/src/controller/controller.cc" "CMakeFiles/Controller.dir/src/controller/controller.cc.o" "gcc" "CMakeFiles/Controller.dir/src/controller/controller.cc.o.d"
   )
 

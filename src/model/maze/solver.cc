@@ -39,10 +39,20 @@ bool SolveRecursive(SolutionMap& solution_map, const WallsMap& walls_map, Indice
   return false;
 }
 
+inline bool BoundsCheck(const Indices& idx, const WallsMap& walls_map) noexcept {
+    return idx.first < walls_map.GetRows() && idx.second < walls_map.GetCols();
+}
+
 } // namespace
 
 std::pair<bool, SolutionMap> Solve(const WallsMap& walls_map, const Indices& curr, const Indices& target) {
-  SolutionMap solution_map;
+  if (!walls_map.GetRows() ||
+      !walls_map.GetCols() ||
+      !BoundsCheck(curr, walls_map) ||
+      !BoundsCheck(target, walls_map)) {
+    return {true, {}};
+  }
+  SolutionMap solution_map(walls_map.GetRows(), walls_map.GetCols());
   bool solved = SolveRecursive(solution_map, walls_map, curr, target);
   return {solved, solution_map};
 }

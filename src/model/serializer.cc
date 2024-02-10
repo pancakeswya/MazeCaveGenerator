@@ -1,5 +1,4 @@
 #include "model/serializer.h"
-#include "model/util.h"
 
 #include <fstream>
 #include <functional>

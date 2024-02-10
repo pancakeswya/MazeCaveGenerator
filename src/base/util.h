@@ -1,5 +1,5 @@
-#ifndef MAZECAVEGENERATOR_SRC_MODEL_UTIL_H_
-#define MAZECAVEGENERATOR_SRC_MODEL_UTIL_H_
+#ifndef MAZECAVEGENERATOR_SRC_BASE_UTIL_H_
+#define MAZECAVEGENERATOR_SRC_BASE_UTIL_H_
 
 #include "base/types.h"
 #include "base/constants.h"
@@ -21,4 +21,4 @@ inline ScaledSize GetScaledCell(const Matrix<Tp> &m) {
 
 }  // namespace mcg::util
 
-#endif  // MAZECAVEGENERATOR_SRC_MODEL_UTIL_H_
+#endif  // MAZECAVEGENERATOR_SRC_BASE_UTIL_H_
