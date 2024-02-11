@@ -95,40 +95,43 @@ void Loader::DrawMaze() {
   if (!maze_map_.GetRows() || !maze_map_.GetCols()) {
     return;
   }
+  constexpr int kLineWidth = 2;
   QPainter painter;
   painter.begin(this);
   auto [scale_row, scale_col] =
       util::GetScaledCell(height(), width(), maze_map_);
-  painter.fillRect(0, 0, scale_col * maze_map_.GetCols(), 2, Qt::black);
-  painter.fillRect(0, 0, 2, scale_row * maze_map_.GetRows(), Qt::black);
+  painter.fillRect(0, 0, scale_col * maze_map_.GetCols(), kLineWidth,
+                   Qt::black);
+  painter.fillRect(0, 0, kLineWidth, scale_row * maze_map_.GetRows(),
+                   Qt::black);
   for (size_t i = 0; i < maze_map_.GetRows(); ++i) {
     for (size_t j = 0; j < maze_map_.GetCols(); ++j) {
       if (maze_map_[i][j].right_wall) {
-        painter.fillRect((j + 1) * scale_col, i * scale_row, 2, scale_row + 2,
-                         Qt::black);
+        painter.fillRect((j + 1) * scale_col, i * scale_row, kLineWidth,
+                         scale_row + kLineWidth, Qt::black);
       }
       if (maze_map_[i][j].bottom_wall) {
-        painter.fillRect(j * scale_col, (i + 1) * scale_row, scale_col + 2, 2,
-                         Qt::black);
+        painter.fillRect(j * scale_col, (i + 1) * scale_row,
+                         scale_col + kLineWidth, kLineWidth, Qt::black);
       }
       if (!maze_solution_map_.Empty() && maze_solution_map_[i][j].visited) {
         maze::Vector path_vector = maze_solution_map_[i][j].vector;
         if (path_vector == maze::Vector::kUp) {
-          painter.fillRect((j + 1) * scale_col - scale_col / 2,
-                           i * scale_row - scale_row / 2, 2, scale_row + 2,
-                           Qt::red);
+          painter.fillRect((j + 1) * scale_col - scale_col / kLineWidth,
+                           i * scale_row - scale_row / kLineWidth, kLineWidth,
+                           scale_row + kLineWidth, Qt::red);
         } else if (path_vector == maze::Vector::kDown) {
-          painter.fillRect(j * scale_col + scale_col / 2,
-                           i * scale_row + scale_row / 2, 2, scale_row + 2,
-                           Qt::red);
+          painter.fillRect(j * scale_col + scale_col / kLineWidth,
+                           i * scale_row + scale_row / kLineWidth, kLineWidth,
+                           scale_row + kLineWidth, Qt::red);
         } else if (path_vector == maze::Vector::kLeft) {
-          painter.fillRect(j * scale_col - scale_col / 2,
-                           i * scale_row + scale_row / 2, scale_col + 2, 2,
-                           Qt::red);
+          painter.fillRect(j * scale_col - scale_col / kLineWidth,
+                           i * scale_row + scale_row / kLineWidth,
+                           scale_col + kLineWidth, kLineWidth, Qt::red);
         } else if (path_vector == maze::Vector::kRight) {
-          painter.fillRect(j * scale_col + scale_col / 2,
-                           (i + 1) * scale_row - scale_row / 2, scale_col + 2,
-                           2, Qt::red);
+          painter.fillRect(j * scale_col + scale_col / kLineWidth,
+                           (i + 1) * scale_row - scale_row / kLineWidth,
+                           scale_col + kLineWidth, kLineWidth, Qt::red);
         }
       }
     }
@@ -137,14 +140,15 @@ void Loader::DrawMaze() {
 }
 
 void Loader::DrawEventMaze(int x, int y) {
+  constexpr int kCountToSolve = 2;
   static int indices_count_ = 0;
-  static Indices indices_[2] = {};
+  static Indices indices_[kCountToSolve] = {};
 
   auto [scaled_row, scaled_col] =
       util::GetScaledCell(height(), width(), maze_map_);
   indices_[indices_count_++] = {y / scaled_row, x / scaled_col};
   // solve on second cell pick
-  if (indices_count_ == 2) {
+  if (indices_count_ == kCountToSolve) {
     auto [solved, maze_map] = controller_->SolveMaze(indices_[0], indices_[1]);
     maze_solution_map_ = maze_map;
     if (!solved) {

@@ -35,7 +35,7 @@ OPEN         := open
 endif
 
 MAKEDVI      := makeinfo --html
-CMAKE      := cmake
+CMAKE        := cmake
 
 CP           := cp -rf
 TAR          := tar cvzf
