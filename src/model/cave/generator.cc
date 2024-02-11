@@ -1,7 +1,5 @@
 #include "model/cave/generator.h"
 
-#include <iostream>
-
 #include "base/util.h"
 
 namespace mcg::cave {

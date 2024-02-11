@@ -111,10 +111,7 @@ void Loader::DrawMaze() {
         painter.fillRect(j * scale_col, (i + 1) * scale_row, scale_col + 2, 2,
                          Qt::black);
       }
-      if (maze_solution_map_.Empty()) {
-        continue;
-      }
-      if (maze_solution_map_[i][j].visited) {
+      if (!maze_solution_map_.Empty() && maze_solution_map_[i][j].visited) {
         maze::Vector path_vector = maze_solution_map_[i][j].vector;
         if (path_vector == maze::Vector::kUp) {
           painter.fillRect((j + 1) * scale_col - scale_col / 2,

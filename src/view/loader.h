@@ -9,7 +9,7 @@
 
 namespace mcg {
 
-enum GenerateType : short int { kCave = false, kMaze, kTypesSize };
+enum GenerateType : bool { kCave = false, kMaze };
 
 class Loader : public QWidget {
   Q_OBJECT
