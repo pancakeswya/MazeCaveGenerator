@@ -24,7 +24,7 @@ class Controller {
   const maze::WallsMap& GenerateMaze(size_t rows, size_t cols);
   const cave::WallsMap& GenerateCave(const cave::Params& params);
   const cave::WallsMap& GenerateNextCave(const cave::Params& params);
-  const std::pair<bool, maze::SolutionMap>& SolveMaze(const Indices& curr,
+  std::pair<bool, const maze::SolutionMap&> SolveMaze(const Indices& curr,
                                                       const Indices& target);
 
  private:

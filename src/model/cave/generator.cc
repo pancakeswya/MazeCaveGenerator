@@ -53,7 +53,8 @@ WallsMap Generate(const Params& params) {
     return walls_map;
   }
   std::generate(walls_map.begin(), walls_map.end(), [=] {
-    return util::GenRandomNum(0, 100) <= params.life_chance;
+    size_t random_chance = util::GenRandomNum(0, 100);
+    return random_chance <= params.life_chance;
   });
   return GenerateWalls(walls_map, params);
 }

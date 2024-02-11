@@ -14,15 +14,14 @@ class MazeModel {
   bool Save(const std::string& path);
 
   void Generate(size_t rows, size_t cols);
-  void Solve(const Indices& curr, const Indices& target);
+  bool Solve(const Indices& curr, const Indices& target);
 
-  [[nodiscard]] const maze::WallsMap& Get() const noexcept;
-  [[nodiscard]] const std::pair<bool, maze::SolutionMap>& GetSolution()
-      const noexcept;
+  [[nodiscard]] const maze::WallsMap& GetMap() const noexcept;
+  [[nodiscard]] const maze::SolutionMap& GetSolution() const noexcept;
 
  private:
   maze::WallsMap maze_map_;
-  std::pair<bool, maze::SolutionMap> maze_solution_;
+  maze::SolutionMap maze_solution_;
 };
 
 }  // namespace mcg

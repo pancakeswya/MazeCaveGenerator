@@ -7,9 +7,9 @@
 
 namespace mcg {
 
-using Indices = std::pair<int, int>;
-using Range = std::pair<int, int>;
-using ScaledSize = std::pair<int, int>;
+using Indices = std::pair<size_t, size_t>;
+using Range = std::pair<size_t, size_t>;
+using ScaledSize = std::pair<size_t, size_t>;
 
 namespace maze {
 

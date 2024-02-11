@@ -23,6 +23,6 @@ void CaveModel::GenerateNext(const cave::Params& params) {
   cave_map_ = cave::GenerateNext(cave_map_, params);
 }
 
-const cave::WallsMap& CaveModel::Get() const noexcept { return cave_map_; }
+const cave::WallsMap& CaveModel::GetMap() const noexcept { return cave_map_; }
 
 }  // namespace mcg

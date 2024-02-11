@@ -16,7 +16,7 @@ class CaveModel {
   void Generate(const cave::Params& params);
   void GenerateNext(const cave::Params& params);
 
-  [[nodiscard]] const cave::WallsMap& Get() const noexcept;
+  [[nodiscard]] const cave::WallsMap& GetMap() const noexcept;
 
  private:
   cave::WallsMap cave_map_;

@@ -21,14 +21,15 @@ void MazeModel::Generate(size_t rows, size_t cols) {
   maze_map_ = maze::Generate(rows, cols);
 }
 
-void MazeModel::Solve(const Indices& curr, const Indices& target) {
-  maze_solution_ = maze::Solve(maze_map_, curr, target);
+bool MazeModel::Solve(const Indices& curr, const Indices& target) {
+  auto [solved, solution] = maze::Solve(maze_map_, curr, target);
+  maze_solution_ = solution;
+  return solved;
 }
 
-const maze::WallsMap& MazeModel::Get() const noexcept { return maze_map_; }
+const maze::WallsMap& MazeModel::GetMap() const noexcept { return maze_map_; }
 
-const std::pair<bool, maze::SolutionMap>& MazeModel::GetSolution()
-    const noexcept {
+const maze::SolutionMap& MazeModel::GetSolution() const noexcept {
   return maze_solution_;
 }
 
