@@ -18,7 +18,7 @@ void GenRightWalls(WallsMap& walls_map, std::vector<size_t>& sets, size_t row) {
     } else {
       std::replace_if(
           sets.begin(), sets.end(),
-          [=](size_t& set) { return set == sets[j + 1]; }, sets[j]);
+          [=](size_t set) { return set == sets[j + 1]; }, sets[j]);
     }
   }
   walls_map[row][sets.size() - 1].right_wall = true;
@@ -27,8 +27,7 @@ void GenRightWalls(WallsMap& walls_map, std::vector<size_t>& sets, size_t row) {
 void GenLowerWalls(WallsMap& walls_map, std::vector<size_t> sets, size_t row) {
   for (size_t i = 0; i < sets.size(); ++i) {
     bool is_wall = util::GenRandomNum(0, 1);
-    auto count = std::count(sets.begin(), sets.end(), sets[i]);
-    if (count != 1 && is_wall) {
+    if (is_wall && std::count(sets.begin(), sets.end(), sets[i]) != 1) {
       walls_map[row][i].bottom_wall = true;
     }
   }

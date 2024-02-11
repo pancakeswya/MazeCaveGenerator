@@ -2,6 +2,7 @@
 
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QTextDocumentWriter>
 
 #include "base/constants.h"
 #include "concurrency/worker_thread.h"
@@ -99,13 +100,28 @@ void View::OnOpenFileClicked() {
 }
 
 void View::OnSaveFileClicked() {
-  QString filepath = QFileDialog::getSaveFileName(
-      this, tr("Open File"), QDir::homePath(), tr("Txt files (*.txt)"));
-  if (!filepath.isEmpty()) {
-    bool is_saved = ui_->mcg_loader->SaveFile(filepath);
-    if (!is_saved) {
-      QMessageBox::warning(this, "Invalid path", "Cannot save there");
-    }
+  const QString format = "txt";
+
+  QString save_path = QDir::homePath();
+  save_path += tr("/shema.") + format;
+
+  QFileDialog file_dialog(this, tr("Save As"), save_path);
+  file_dialog.setAcceptMode(QFileDialog::AcceptSave);
+  file_dialog.setFileMode(QFileDialog::AnyFile);
+  file_dialog.setDirectory(QDir::homePath());
+
+  QStringList mime_types = {"text/plain"};
+  file_dialog.setMimeTypeFilters(mime_types);
+  file_dialog.selectMimeTypeFilter("text/plain");
+  file_dialog.setDefaultSuffix(format);
+  if (file_dialog.exec() != QDialog::Accepted) {
+    return;
+  }
+
+  const QString file_name = file_dialog.selectedFiles().constFirst();
+  bool is_saved = ui_->mcg_loader->SaveFile(file_name);
+  if (!is_saved) {
+    QMessageBox::warning(this, "Invalid path", "Cannot save there");
   }
 }
 

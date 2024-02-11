@@ -31,11 +31,11 @@ class Loader : public QWidget {
 
  public slots:
   void GenerateCaveNext(const cave::Params& params);
-  void SetType(int);
+  void SetType(int type);
 
  protected:
-  void paintEvent(QPaintEvent*) override;
-  void mousePressEvent(QMouseEvent*) override;
+  void paintEvent(QPaintEvent* event) override;
+  void mousePressEvent(QMouseEvent* event) override;
 
  private:
   void DrawCave();

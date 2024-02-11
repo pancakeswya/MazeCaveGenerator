@@ -161,7 +161,7 @@ void Loader::DrawEventCave(int x, int y) {
   }
   auto [scaled_row, scaled_col] =
       util::GetScaledCell(height(), width(), cave_map_);
-  cave_map_[y / scaled_row][x / scaled_col] = true;
+  cave_map_[y / scaled_row][x / scaled_col] = 1;
   update();
 }
 

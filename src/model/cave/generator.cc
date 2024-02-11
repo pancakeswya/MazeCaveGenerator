@@ -1,5 +1,7 @@
 #include "model/cave/generator.h"
 
+#include <algorithm>
+
 #include "base/util.h"
 
 namespace mcg::cave {
@@ -26,15 +28,6 @@ inline size_t CountNeighbours(const WallsMap& walls_map, size_t row,
          CheckNeighbour(walls_map, row + 1, col + 1);
 }
 
-void SetFirstGeneration(WallsMap& walls_map, size_t live_chance) {
-  for (Walls& walls : walls_map) {
-    int chance = util::GenRandomNum(0, 100);
-    if (chance <= live_chance) {
-      walls = true;
-    }
-  }
-}
-
 WallsMap GenerateWalls(const WallsMap& walls_map, const Params& params) {
   WallsMap result = walls_map;
   for (size_t row = 0; row != walls_map.GetRows(); ++row) {
@@ -42,10 +35,10 @@ WallsMap GenerateWalls(const WallsMap& walls_map, const Params& params) {
       size_t count = CountNeighbours(walls_map, row, col);
       if (walls_map[row][col] && (count < params.live_limit.first ||
                                   count > params.live_limit.second)) {
-        result[row][col] = false;
+        result[row][col] = 0;
       } else if (!walls_map[row][col] && count >= params.born_limit.first &&
                  count <= params.born_limit.second) {
-        result[row][col] = true;
+        result[row][col] = 1;
       }
     }
   }
@@ -56,10 +49,12 @@ WallsMap GenerateWalls(const WallsMap& walls_map, const Params& params) {
 
 WallsMap Generate(const Params& params) {
   WallsMap walls_map(params.rows, params.cols);
-  if (params.rows == 0 || params.cols == 0 || params.life_chance == 0) {
+  if (!params.rows || !params.cols || !params.life_chance) {
     return walls_map;
   }
-  SetFirstGeneration(walls_map, params.life_chance);
+  std::generate(walls_map.begin(), walls_map.end(), [=] {
+    return util::GenRandomNum(0, 100) <= params.life_chance;
+  });
   return GenerateWalls(walls_map, params);
 }
 
