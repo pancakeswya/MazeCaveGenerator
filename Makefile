@@ -13,8 +13,8 @@ TEST_LIB     := gtest
 TEST_NAME    := model_test
 LCOV_NAME    := model_test.info
 
-MODEL_LIB    := libmodel
-MODEL_LDLIB  := -lmodel -lmaze -lcave
+MODEL_LIB    := model
+MODEL_LDLIB  := $(addprefix -l,$(MODEL_LIB))
 
 TEST_LDLIB   := $(addprefix -l,$(TEST_LIB))
 

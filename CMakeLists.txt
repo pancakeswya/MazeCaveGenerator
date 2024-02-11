@@ -10,31 +10,21 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
-add_library(Maze STATIC
+add_library(Model STATIC
             src/model/maze/generator.cc
             src/model/maze/generator.h
             src/model/maze/serializer.cc
             src/model/maze/serializer.h
             src/model/maze/solver.cc
-            src/model/maze/solver.h)
-
-set_target_properties(Maze PROPERTIES OUTPUT_NAME "maze")
-
-add_library(Cave STATIC
+            src/model/maze/solver.h
             src/model/cave/generator.cc
             src/model/cave/generator.h
             src/model/cave/serializer.cc
-            src/model/cave/serializer.h)
-
-set_target_properties(Cave PROPERTIES OUTPUT_NAME "cave")
-
-add_library(Model STATIC
+            src/model/cave/serializer.h
             src/model/maze_model.cc
             src/model/maze_model.h
             src/model/cave_model.cc
             src/model/cave_model.h)
-
-target_link_libraries(Model Maze Cave)
 
 set_target_properties(Model PROPERTIES OUTPUT_NAME "model")
 
