@@ -18,11 +18,15 @@ add_library(Maze STATIC
             src/model/maze/solver.cc
             src/model/maze/solver.h)
 
+set_target_properties(Maze PROPERTIES OUTPUT_NAME "maze")
+
 add_library(Cave STATIC
             src/model/cave/generator.cc
             src/model/cave/generator.h
             src/model/cave/serializer.cc
             src/model/cave/serializer.h)
+
+set_target_properties(Cave PROPERTIES OUTPUT_NAME "cave")
 
 add_library(Model STATIC
             src/model/maze_model.cc
@@ -31,6 +35,8 @@ add_library(Model STATIC
             src/model/cave_model.h)
 
 target_link_libraries(Model Maze Cave)
+
+set_target_properties(Model PROPERTIES OUTPUT_NAME "model")
 
 add_library(Controller STATIC
             src/controller/controller.cc

@@ -5,17 +5,16 @@ NAME         := MazeCaveGenerator
 SRC_DIR      := src
 BUILD_DIR    := build
 REPORT_DIR   := report
-MODEL_DIR    := $(SRC_DIR)/model
-TEST_DIR     := $(MODEL_DIR)/test
+TEST_DIR     := $(SRC_DIR)/model/test
+
+TEST_SRC     := $(TEST_DIR)/test.cc
 
 TEST_LIB     := gtest
 TEST_NAME    := model_test
 LCOV_NAME    := model_test.info
 
-MODEL_SRC    := $(wildcard $(MODEL_DIR)/*.cc) $(wildcard $(MODEL_DIR)/*/*.cc)
-TEST_SRC     := $(wildcard $(TEST_DIR)/*.cc)
-MODEL_OBJ    := $(MODEL_SRC:.cc=.o)
-MODEL_LIB    := model.a
+MODEL_LIB    := libmodel
+MODEL_LDLIB  := -lmodel -lmaze -lcave
 
 TEST_LDLIB   := $(addprefix -l,$(TEST_LIB))
 
@@ -29,12 +28,14 @@ VALGRIND     := valgrind --tool=memcheck --trace-children=yes --track-origins=ye
 
 ifeq ($(OS), Linux)
 RUN          := ./$(BUILD_DIR)/$(NAME)
+OPEN         := xdg-open
 else
 RUN          := open $(BUILD_DIR)/$(NAME).app
+OPEN         := open
 endif
 
 MAKEDVI      := makeinfo --html
-BUILDER      := cmake
+CMAKE      := cmake
 
 CP           := cp -rf
 TAR          := tar cvzf
@@ -46,7 +47,7 @@ all: install run
 
 install:
 	mkdir -p $(BUILD_DIR)
-	cd $(BUILD_DIR) && $(BUILDER) .. && $(MAKE)
+	cd $(BUILD_DIR) && $(CMAKE) .. && $(MAKE)
 
 uninstall:
 	$(RM) $(BUILD_DIR)
@@ -61,18 +62,16 @@ dist:
 	$(TAR) $(NAME).tgz $(NAME)
 	mv $(NAME).tgz $(HOME)/Desktop
 
-$(MODEL_LIB): $(MODEL_OBJ)
-	$(AR) $(ARFLAGS) $@ $^
-
-%.o: %.c
-	$(CXX) $(CXXFLAGS) -c -o $@ $<
+$(MODEL_LIB):
+	mkdir -p $(BUILD_DIR)
+	cd $(BUILD_DIR) && $(CMAKE) .. && $(CMAKE) --build . --target Model
 
 test: $(MODEL_LIB)
-	$(CXX) $(CXXFLAGS) $(TEST_SRC) $(MODEL_LIB) $(TEST_LDLIB) -o $(TEST_NAME)
+	$(CXX) $(CXXFLAGS) $(TEST_SRC) -L$(BUILD_DIR) $(MODEL_LDLIB) $(TEST_LDLIB) -o $(TEST_NAME)
 	./$(TEST_NAME)
 
 gcov_report: $(MODEL_LIB)
-	$(CXX) $(CXXFLAGS) $(GCOV) $(TEST_SRC) $(MODEL_LIB) $(TEST_LDLIB) -o $(TEST_NAME)
+	$(CXX) $(CXXFLAGS) $(GCOV) $(TEST_SRC) -L$(BUILD_DIR) $(MODEL_LDLIB) $(TEST_LDLIB) -o $(TEST_NAME)
 	./$(TEST_NAME)
 	$(LCOV) -t $(TEST_NAME) -d . -o $(LCOV_NAME)
 	genhtml $(LCOV_NAME) -o $(REPORT_DIR)
@@ -85,8 +84,6 @@ check-valgrind: test
 	CK_FORK=NO $(VALGRIND) ./$(TEST_NAME)
 
 clean: uninstall
-	$(RM) $(MODEL_LIB)
-	$(RM) $(MODEL_OBJ)
 	$(RM) $(LCOV_NAME)
 	$(RM) $(REPORT_DIR)
 	$(RM) *.gcno *.gcda
