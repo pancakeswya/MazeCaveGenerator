@@ -3,9 +3,9 @@
 #include <QDebug>
 #include <QMessageBox>
 #include <QMouseEvent>
+#include <QPainter>
 
 #include "base/util.h"
-#include "view/painter.h"
 
 namespace mcg {
 
@@ -72,6 +72,73 @@ void Loader::GenerateCaveNext(const cave::Params& params) {
   update();
 }
 
+void Loader::DrawCave() {
+  if (!cave_map_.GetRows() || !cave_map_.GetCols()) {
+    return;
+  }
+  QPainter painter;
+  painter.begin(this);
+  auto [scale_row, scale_col] =
+      util::GetScaledCell(height(), width(), cave_map_);
+  for (size_t i = 0; i < cave_map_.GetRows(); ++i) {
+    for (size_t j = 0; j < cave_map_.GetCols(); ++j) {
+      if (cave_map_[i][j]) {
+        painter.fillRect(j * scale_col, i * scale_row, scale_col, scale_row,
+                         Qt::black);
+      }
+    }
+  }
+  painter.end();
+}
+
+void Loader::DrawMaze() {
+  if (!maze_map_.GetRows() || !maze_map_.GetCols()) {
+    return;
+  }
+  QPainter painter;
+  painter.begin(this);
+  auto [scale_row, scale_col] =
+      util::GetScaledCell(height(), width(), maze_map_);
+  painter.fillRect(0, 0, scale_col * maze_map_.GetCols(), 2, Qt::black);
+  painter.fillRect(0, 0, 2, scale_row * maze_map_.GetRows(), Qt::black);
+  for (size_t i = 0; i < maze_map_.GetRows(); ++i) {
+    for (size_t j = 0; j < maze_map_.GetCols(); ++j) {
+      if (maze_map_[i][j].right_wall) {
+        painter.fillRect((j + 1) * scale_col, i * scale_row, 2, scale_row + 2,
+                         Qt::black);
+      }
+      if (maze_map_[i][j].bottom_wall) {
+        painter.fillRect(j * scale_col, (i + 1) * scale_row, scale_col + 2, 2,
+                         Qt::black);
+      }
+      if (maze_solution_map_.Empty()) {
+        continue;
+      }
+      if (maze_solution_map_[i][j].visited) {
+        maze::Vector path_vector = maze_solution_map_[i][j].vector;
+        if (path_vector == maze::Vector::kUp) {
+          painter.fillRect((j + 1) * scale_col - scale_col / 2,
+                           i * scale_row - scale_row / 2, 2, scale_row + 2,
+                           Qt::red);
+        } else if (path_vector == maze::Vector::kDown) {
+          painter.fillRect(j * scale_col + scale_col / 2,
+                           i * scale_row + scale_row / 2, 2, scale_row + 2,
+                           Qt::red);
+        } else if (path_vector == maze::Vector::kLeft) {
+          painter.fillRect(j * scale_col - scale_col / 2,
+                           i * scale_row + scale_row / 2, scale_col + 2, 2,
+                           Qt::red);
+        } else if (path_vector == maze::Vector::kRight) {
+          painter.fillRect(j * scale_col + scale_col / 2,
+                           (i + 1) * scale_row - scale_row / 2, scale_col + 2,
+                           2, Qt::red);
+        }
+      }
+    }
+  }
+  painter.end();
+}
+
 void Loader::DrawEventMaze(int x, int y) {
   static int indices_count_ = 0;
   static Indices indices_[2] = {};
@@ -115,9 +182,9 @@ void Loader::mousePressEvent(QMouseEvent* event) {
 
 void Loader::paintEvent(QPaintEvent*) {
   if (type_ == GenerateType::kCave) {
-    cave::Draw(this, cave_map_);
+    DrawCave();
   } else {
-    maze::Draw(this, maze_map_, maze_solution_map_);
+    DrawMaze();
   }
 }
 

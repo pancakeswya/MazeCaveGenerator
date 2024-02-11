@@ -9,8 +9,6 @@
 
 namespace mcg {
 
-enum GenerateType : short int { kCave = false, kMaze, kTypesSize };
-
 class Loader : public QWidget {
   Q_OBJECT
 
@@ -38,6 +36,9 @@ class Loader : public QWidget {
   void mousePressEvent(QMouseEvent*) override;
 
  private:
+  void DrawCave();
+  void DrawMaze();
+
   void DrawEventMaze(int x, int y);
   void DrawEventCave(int x, int y);
 

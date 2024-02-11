@@ -13,22 +13,24 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 add_library(Maze STATIC
             src/model/maze/generator.cc
             src/model/maze/generator.h
+            src/model/maze/serializer.cc
+            src/model/maze/serializer.h
             src/model/maze/solver.cc
             src/model/maze/solver.h)
 
 add_library(Cave STATIC
             src/model/cave/generator.cc
-            src/model/cave/generator.h)
-
-add_library(Serializer STATIC
-            src/model/serializer.cc
-            src/model/serializer.h)
+            src/model/cave/generator.h
+            src/model/cave/serializer.cc
+            src/model/cave/serializer.h)
 
 add_library(Model STATIC
-            src/model/model.cc
-            src/model/model.h)
+            src/model/maze_model.cc
+            src/model/maze_model.h
+            src/model/cave_model.cc
+            src/model/cave_model.h)
 
-target_link_libraries(Model Maze Cave Serializer)
+target_link_libraries(Model Maze Cave)
 
 add_library(Controller STATIC
             src/controller/controller.cc
@@ -39,12 +41,6 @@ target_link_libraries(Controller Model)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
-
-add_library(Painter STATIC
-            src/view/painter.cc
-            src/view/painter.h)
-
-target_link_libraries(Painter Qt${QT_VERSION_MAJOR}::Widgets)
 
 add_library(Worker STATIC
             src/concurrency/worker_thread.cc
@@ -74,7 +70,7 @@ else()
     )
 endif()
 
-target_link_libraries(MazeCaveGenerator PRIVATE Painter Worker Controller Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(MazeCaveGenerator PRIVATE Worker Controller Qt${QT_VERSION_MAJOR}::Widgets)
 
 set_target_properties(MazeCaveGenerator PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com

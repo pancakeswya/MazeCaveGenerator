@@ -8,11 +8,12 @@
 
 namespace mcg {
 
-class Model;
+class MazeModel;
+class CaveModel;
 
 class Controller {
  public:
-  explicit Controller(Model* model) noexcept;
+  explicit Controller(MazeModel* maze_model, CaveModel* cave_model) noexcept;
 
   std::pair<bool, const maze::WallsMap&> LoadMaze(const std::string& path);
   std::pair<bool, const cave::WallsMap&> LoadCave(const std::string& path);
@@ -27,7 +28,8 @@ class Controller {
                                                       const Indices& target);
 
  private:
-  Model* model_;
+  MazeModel* maze_model_;
+  CaveModel* cave_model_;
 };
 
 }  // namespace mcg

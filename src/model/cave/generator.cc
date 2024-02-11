@@ -1,13 +1,15 @@
 #include "model/cave/generator.h"
 
+#include <iostream>
+
 #include "base/util.h"
 
 namespace mcg::cave {
 
 namespace {
 
-inline bool CheckNeighbour(const WallsMap& walls_map, size_t row,
-                           size_t col) noexcept {
+inline int CheckNeighbour(const WallsMap& walls_map, size_t row,
+                          size_t col) noexcept {
   if (row >= walls_map.GetRows() || col >= walls_map.GetCols()) {
     return true;
   }

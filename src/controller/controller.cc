@@ -1,50 +1,52 @@
 #include "controller/controller.h"
 
-#include "model/model.h"
+#include "model/cave_model.h"
+#include "model/maze_model.h"
 
 namespace mcg {
 
-Controller::Controller(Model* model) noexcept : model_(model) {}
+Controller::Controller(MazeModel* maze_model, CaveModel* cave_model) noexcept
+    : maze_model_(maze_model), cave_model_(cave_model) {}
 
 std::pair<bool, const maze::WallsMap&> Controller::LoadMaze(
     const std::string& path) {
-  bool ok = model_->LoadMaze(path);
-  return {ok, model_->GetMaze()};
+  bool ok = maze_model_->Load(path);
+  return {ok, maze_model_->Get()};
 }
 
 std::pair<bool, const cave::WallsMap&> Controller::LoadCave(
     const std::string& path) {
-  bool ok = model_->LoadCave(path);
-  return {ok, model_->GetCave()};
+  bool ok = cave_model_->Load(path);
+  return {ok, cave_model_->Get()};
 }
 
 bool Controller::SaveMaze(const std::string& path) {
-  return model_->SaveMaze(path);
+  return maze_model_->Save(path);
 }
 
 bool Controller::SaveCave(const std::string& path) {
-  return model_->SaveCave(path);
+  return cave_model_->Save(path);
 }
 
 const maze::WallsMap& Controller::GenerateMaze(size_t rows, size_t cols) {
-  model_->GenerateMaze(rows, cols);
-  return model_->GetMaze();
+  maze_model_->Generate(rows, cols);
+  return maze_model_->Get();
 }
 
 const cave::WallsMap& Controller::GenerateCave(const cave::Params& params) {
-  model_->GenerateCave(params);
-  return model_->GetCave();
+  cave_model_->Generate(params);
+  return cave_model_->Get();
 }
 
 const cave::WallsMap& Controller::GenerateNextCave(const cave::Params& params) {
-  model_->GenerateNextCave(params);
-  return model_->GetCave();
+  cave_model_->GenerateNext(params);
+  return cave_model_->Get();
 }
 
 const std::pair<bool, maze::SolutionMap>& Controller::SolveMaze(
     const Indices& curr, const Indices& target) {
-  model_->SolveMaze(curr, target);
-  return model_->GetMazeSolution();
+  maze_model_->Solve(curr, target);
+  return maze_model_->GetSolution();
 }
 
 }  // namespace mcg
