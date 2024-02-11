@@ -40,9 +40,7 @@ struct Params {
   Range born_limit;
 };
 
-// using char because bool vector is fucked up
 using Walls = int;
-
 using WallsMap = Matrix<Walls>;
 
 }  // namespace cave

@@ -1,5 +1,5 @@
-#ifndef MAZECAVEGENERATOR_MODEL_MAZE_SOLVER_H_
-#define MAZECAVEGENERATOR_MODEL_MAZE_SOLVER_H_
+#ifndef MAZECAVEGENERATOR_SRC_MODEL_MAZE_SOLVER_H_
+#define MAZECAVEGENERATOR_SRC_MODEL_MAZE_SOLVER_H_
 
 #include "base/types.h"
 
@@ -11,4 +11,4 @@ extern std::pair<bool, SolutionMap> Solve(const WallsMap& maze_map,
 
 }  // namespace mcg::maze
 
-#endif  // MAZECAVEGENERATOR_MODEL_MAZE_SOLVER_H_
+#endif  // MAZECAVEGENERATOR_SRC_MODEL_MAZE_SOLVER_H_

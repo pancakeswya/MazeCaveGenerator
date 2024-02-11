@@ -38,4 +38,4 @@ class View : public QMainWindow {
 
 }  // namespace mcg
 
-#endif  // MAZECAVEGENERATOR_SRC_VIEW_VIEW_H
+#endif  // MAZECAVEGENERATOR_SRC_VIEW_VIEW_H_

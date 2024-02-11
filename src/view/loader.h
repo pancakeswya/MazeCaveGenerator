@@ -1,5 +1,5 @@
-#ifndef MAZECAVEGENERATOR_SRC_VIEW_LOADER_H
-#define MAZECAVEGENERATOR_SRC_VIEW_LOADER_H
+#ifndef MAZECAVEGENERATOR_SRC_VIEW_LOADER_H_
+#define MAZECAVEGENERATOR_SRC_VIEW_LOADER_H_
 
 #include <QWidget>
 #include <memory>
@@ -55,4 +55,4 @@ class Loader : public QWidget {
 
 }  // namespace mcg
 
-#endif  // MAZECAVEGENERATOR_SRC_VIEW_LOADER_H
+#endif  // MAZECAVEGENERATOR_SRC_VIEW_LOADER_H_
